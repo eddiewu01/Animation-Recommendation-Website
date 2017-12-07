@@ -3,15 +3,29 @@ var router = express.Router();
 var path = require('path');
 
 // Connect string to MySQL
+
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'guobiao2.c8cv6ha3bzfw.us-west-2.rds.amazonaws.com',
-  user     : 'guobiao',
-  password : '2G5K6D435q',
-  database : 'guobiao2'
+  host     : 'fling.seas.upenn.edu',
+  user     : 'zlz',
+  password : 'owencis550',
+  database : 'zlz'
+});
+
+
+var MongoClient = require('mongodb').MongoClient, format = require('util').format;
+MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        console.log("successfully connected to the database");
+    }
+    db.close();
 });
 
 /* GET home page. */
+
+
 router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'index.html'));
 });
@@ -24,47 +38,31 @@ router.get('/insert', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'insert.html'));
 });
 
-/*
-router.get('/showfamily', function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../', 'views', 'showfamily.html'));
-});
-*/
-
 router.get('/data/:email', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
-  //console.log("inside person email");
-  var query = 'SELECT p.login, p.name, p.sex, p.relationshipStatus, p.birthyear, COUNT(f.login) AS number_of_friends from (Person p LEFT JOIN Friends f ON p.login = f.login) GROUP BY p.login';
-  // you may change the query during implementation
+  // console.log("inside person email");
+  var query = 'SELECT * from Person';
   var email = req.params.email;
-  if (email != 'undefined') query = 'SELECT p.login, p.name, p.sex, p.relationshipStatus, p.birthyear, COUNT(f.login) AS number_of_friends from (Person p LEFT JOIN Friends f ON p.login = f.login)' + ' where p.login ="' + email +'"' + ' group by p.login' ;
+  if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
   console.log(query);
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-        //console.log(rows);
         res.json(rows);
     }  
     });
 });
 
-// ----Your implemention of route handler for "Insert a new record" should go here-----
-router.get('/insert/:login/:name/:sex/:relationshipStatus/:birthyear', function(req, res,next) {
-  var login1 = req.params.login;
-  var name1 = req.params.name;
-  var sex1 = req.params.sex;
-  var relationshipStatus1 = req.params.relationshipStatus;
-  var birthyear1 = req.params.birthyear;
-  console.log(login1);
-  //console.log(login);
-  var query = 'INSERT INTO Person VALUES(' + '"' + login1 + '"' +', ' + '"' + name1 + '"' + ', ' + '"' + sex1 + '"' + ', ' + '"' + relationshipStatus1 + '"' + ', ' + '"' + birthyear1 + '"' + ')';
-  console.log(query);
-  connection.query(query, function(err, rows, fields) {
-    if(err) console.log(err);
-    else{
+router.get('/insert/:values', function(req,res) {
+ var value = req.params.values.split('&');
+    //console.log('INSERT INTO Person(login,name,sex,relationshipStatus,birthyear) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'","'+value[4]+'")');
+    connection.query('INSERT INTO Person(login,name,sex,relationshipStatus,birthyear) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'","'+value[4]+'")' ,function (err, rows, fields) {
+        if (err) throw err;
 
-    }
-  });
+    });
 });
 
 
 module.exports = router;
+
+
