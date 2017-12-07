@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
-// Connect string to MySQL
 
+// Connect string to MySQL
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'fling.seas.upenn.edu',
-  user     : 'zlz',
-  password : 'owencis550',
-  database : 'zlz'
+  host     : 'guobiao2.c8cv6ha3bzfw.us-west-2.rds.amazonaws.com',
+  user     : 'guobiao',
+  password : '2G5K6D435q',
+  database : 'guobiao2'
 });
 
 
