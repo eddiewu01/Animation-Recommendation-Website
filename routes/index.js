@@ -49,12 +49,12 @@ router.get('/insert', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'insert.html'));
 });
 
-router.get('/data/:email', function(req,res) {
+router.get('/showall', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT * from Person';
-  var email = req.params.email;
-  if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
+  var query = 'SELECT * from animation LIMIT 10';
+  //var email = req.params.email;
+  //if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
   // console.log(query);
   // console.log('test controller');
   connection.query(query, function(err, rows, fields) {
@@ -70,9 +70,16 @@ router.get('/Top10', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
   // var query = 'SELECT * from Person Limit 10';
-  // var query = 'SELECT score from animation limit 5';
-  var query = 'SELECT * from premium_user limit 5';
+  //var query = 'SELECT * from animation limit 10';
 
+  // Q3 from milestone 3
+  var query = "SELECT DISTINCT name " 
+  query += "FROM animation a, animation_genre ag, genre g"
+  query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
+  query += " ORDER BY a.score DESC LIMIT 10"
+  
+
+  //var query = "SELECT * FROM user LIMIT 10"
   console.log(query);
   // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
@@ -99,6 +106,23 @@ router.get('/Top50', function(req,res) {
     }  
     });
 });
+
+router.get('/Empty', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  var query = 'SELECT * FROM user WHERE 1 = 0';
+
+  console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+        res.json(rows);
+    }  
+    });
+});
+
 
 
 router.get('/insert/:values', function(req,res) {

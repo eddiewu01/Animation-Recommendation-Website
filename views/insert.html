@@ -18,10 +18,8 @@
   <p><a href="/">Back to Main Page</a></p>
 </div>
   
-<div class="container">
+<div id="original" class="container">
   <div class="row">
-
-
         <div class="jumbotron">
      <div ng-controller="myController">
     <p>
@@ -30,34 +28,35 @@
         <input name="email" ng-model="email" value=""> -->
 
 
-        <button type="button" ng-click="Submit()" class="button">Show All</button>
+        <button type="button"  ng-click="Submit()" class = "button">Show All</button>
 
         <button type="button" ng-click="Top10()" class="button">Top10</button>
 
         <button type="button" ng-click="Top50()" class="button">Top50</button>
 
+        <button type="button" ng_click="Empty()" class="button"> Empty the table! </button>
 
     </p>
     <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
-        <td> Login </td>
-        <td> Name </td>
-        <td> Sex </td>
-        <td> RelationshipStatus </td>
-        <td> Birthyear </td>
+        <td> Anime_id </td>
+        <td>  Name </td>
+        <td> Type </td>
+        <td> Episodes </td>
+        <td> Score </td>
+        <td> members </td>
         <tr ng-repeat="x in data"> 
-        <td> {{x.login}} </td>
+        <td> {{x.anime_id}} </td>
         <td> {{x.name}} </td>
-        <td> {{x.sex}} </td>
-        <td> {{x.relationshipStatus}} </td>
-        <td> {{x.birthyear}} </td>
+        <td> {{x.type}} </td>
+        <td> {{x.episodes}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.members}} </td>
         </tr>
     </table>
     </div>
     <!-- </div> -->
-
-
-
+        
 
   </div>
 </div>

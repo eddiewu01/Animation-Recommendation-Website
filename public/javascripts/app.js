@@ -8,7 +8,7 @@ app.controller('myController', function($scope, $http) {
 
         $scope.Submit = function() {
         
-        var request = $http.get('/data/'+$scope.email);
+        var request = $http.get('/showall');
         
         request.success(function(data) {
             
@@ -18,7 +18,7 @@ app.controller('myController', function($scope, $http) {
         request.error(function(data){
             console.log('err');
         });
-};
+        };
 
 
         $scope.Top10 = function() {
@@ -45,7 +45,20 @@ app.controller('myController', function($scope, $http) {
         request1.error(function(data){
             console.log('err');
         });
-    }; 
+        }; 
+
+
+        $scope.Empty = function() {
+
+        var request1 = $http.get('/Empty');
+        request1.success(function(data) {
+
+            $scope.data = data;
+        });
+        request1.error(function(data){
+            console.log('err');
+        });
+        }; 
 
 
 
