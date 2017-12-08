@@ -44,7 +44,8 @@ router.get('/data/:email', function(req,res) {
   var query = 'SELECT * from Person';
   var email = req.params.email;
   if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
-  console.log(query);
+  // console.log(query);
+  // console.log('test controller');
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
@@ -52,6 +53,25 @@ router.get('/data/:email', function(req,res) {
     }  
     });
 });
+
+
+router.get('/Top10', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  var query = 'SELECT * from Person Limit 10';
+
+  // console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+        res.json(rows);
+    }  
+    });
+});
+
+
 
 router.get('/insert/:values', function(req,res) {
  var value = req.params.values.split('&');
