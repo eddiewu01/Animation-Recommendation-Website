@@ -12,6 +12,16 @@ var connection = mysql.createConnection({
   database : 'zlz'
 });
 
+/*
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'guobiao2.c8cv6ha3bzfw.us-west-2.rds.amazonaws.com',
+  user     : 'guobiao',
+  password : '2G5K6D435q',
+  database : 'guobiao2'
+});
+
+*/
 
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
 MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
