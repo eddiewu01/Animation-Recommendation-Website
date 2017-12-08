@@ -4,8 +4,9 @@ var app = angular.module('angularjsNodejsTutorial',[]);
 
 app.controller('myController', function($scope, $http) {
         $scope.message="";
-        $scope.Submit = function() {
 
+
+        $scope.Submit = function() {
         
         var request = $http.get('/data/'+$scope.email);
         
@@ -17,7 +18,7 @@ app.controller('myController', function($scope, $http) {
         request.error(function(data){
             console.log('err');
         });
-}
+};
 
 
         $scope.Top10 = function() {
@@ -30,13 +31,28 @@ app.controller('myController', function($scope, $http) {
         request1.error(function(data){
             console.log('err');
         });
-    
     }; 
+
+
+
+        $scope.Top50 = function() {
+
+        var request1 = $http.get('/Top50');
+        request1.success(function(data) {
+
+            $scope.data = data;
+        });
+        request1.error(function(data){
+            console.log('err');
+        });
+    }; 
+
+
+
 });
 
 
 // app.controller('myController2', function($scope, $http) {
-
 //         $scope.Top10 = function() {
 
 //         console.log('test controller')

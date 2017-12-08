@@ -4,13 +4,24 @@ var path = require('path');
 
 // Connect string to MySQL
 
+// var mysql = require('mysql');
+// var connection = mysql.createConnection({
+//   host     : 'fling.seas.upenn.edu',
+//   user     : 'zlz',
+//   password : 'owencis550',
+//   database : 'zlz'
+// });
+
+
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'fling.seas.upenn.edu',
-  user     : 'zlz',
-  password : 'owencis550',
-  database : 'zlz'
+  host     : 'guobiao2.c8cv6ha3bzfw.us-west-2.rds.amazonaws.com',
+  user     : 'guobiao',
+  password : '2G5K6D435q',
+  database : 'group9_550'
+  // port: "3306"
 });
+
 
 
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
@@ -58,9 +69,11 @@ router.get('/data/:email', function(req,res) {
 router.get('/Top10', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT * from Person Limit 10';
+  // var query = 'SELECT * from Person Limit 10';
+  // var query = 'SELECT score from animation limit 5';
+  var query = 'SELECT * from premium_user limit 5';
 
-  // console.log(query);
+  console.log(query);
   // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
   connection.query(query, function(err, rows, fields) {
@@ -71,6 +84,21 @@ router.get('/Top10', function(req,res) {
     });
 });
 
+router.get('/Top50', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  var query = 'SELECT * from Person Limit 3';
+
+  console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+        res.json(rows);
+    }  
+    });
+});
 
 
 router.get('/insert/:values', function(req,res) {
