@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<!-- saved from url=(0090)https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_theme_band_complete&stacked=h -->
+<html lang="en-US" class="gr__w3schools_com"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Tryit Editor v3.5</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./Tryit Editor v3.5_files/w3.css">
+<link rel="stylesheet" href="./Tryit Editor v3.5_files/codemirror.css">
+<script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_rendering_170.js"></script><script src="https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&amp;correlator=379431404940217&amp;output=json_html&amp;callback=googletag.impl.pubads.callbackProxy1&amp;impl=fif&amp;eid=108809103%2C21060362%2C21061149&amp;sc=1&amp;sfv=1-0-14&amp;iu=%2F16833175%2FTryitLeaderboard&amp;sz=728x90%7C970x90&amp;cust_params=content%3Dtrybootstrap&amp;cookie_enabled=1&amp;abxe=1&amp;lmt=1512764310&amp;dt=1512780757495&amp;frm=20&amp;biw=1440&amp;bih=710&amp;oid=3&amp;adx=0&amp;ady=0&amp;adk=1912985419&amp;gut=v2&amp;ifi=1&amp;u_tz=-360&amp;u_his=1&amp;u_h=900&amp;u_w=1600&amp;u_ah=807&amp;u_aw=1600&amp;u_cd=24&amp;u_nplug=4&amp;u_nmime=5&amp;u_sd=1&amp;flash=0&amp;url=https%3A%2F%2Fwww.w3schools.com%2Fbootstrap%2Ftryit.asp%3Ffilename%3Dtrybs_theme_band_complete%26stacked%3Dh&amp;ref=https%3A%2F%2Fwww.w3schools.com%2Fbootstrap%2Fbootstrap_theme_band.asp&amp;dssz=14&amp;icsg=2248&amp;std=0&amp;vrg=170&amp;vis=2&amp;ga_vid=1798146005.1505066009&amp;ga_sid=1512780758&amp;ga_hid=871058180"></script><script src="./Tryit Editor v3.5_files/cb=gapi.loaded_0" async=""></script><script async="" type="text/javascript" src="./Tryit Editor v3.5_files/gpt.js"></script><script async="" src="./Tryit Editor v3.5_files/analytics.js"></script><script src="./Tryit Editor v3.5_files/codemirror.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-3855518-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+<script>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+<script type="text/javascript">
+// GPT slots
+var gptAdSlots = [];
+googletag.cmd.push(function() {
+  var leaderMapping = googletag.sizeMapping().
+  // Mobile ad
+  addSize([0, 0], [320, 50]). 
+  // Vertical Tablet ad
+  addSize([468, 0], [468, 60]). 
+  // Horizontal Tablet
+  addSize([728, 0], [728, 90]).
+  // Desktop and bigger ad
+  addSize([970, 0], [[728, 90], [970, 90]]).build();
+  // addSize([970, 0], [728, 90]).build();
+  gptAdSlots[0] = googletag.defineSlot('/16833175/TryitLeaderboard', [[728, 90], [970, 90]], 'div-gpt-ad-1428407818244-0').
+  // gptAdSlots[0] = googletag.defineSlot('/16833175/TryitLeaderboard', [728, 90], 'div-gpt-ad-1428407818244-0').
+  defineSizeMapping(leaderMapping).addService(googletag.pubads());
+  googletag.pubads().setTargeting("content","try" + (function () {
+    var folder = location.pathname;
+    folder = folder.replace("/", "");
+    folder = folder.substr(0, folder.indexOf("/"));
+    return folder;
+  })()
+  );
+  googletag.enableServices();
+});
+</script>
+<script>
+if (window.addEventListener) {              
+    window.addEventListener("resize", browserResize);
+} else if (window.attachEvent) {                 
+    window.attachEvent("onresize", browserResize);
+}
+var xbeforeResize = window.innerWidth;
+
+function browserResize() {
+    var afterResize = window.innerWidth;
+    if ((xbeforeResize < (970) && afterResize >= (970)) || (xbeforeResize >= (970) && afterResize < (970)) ||
+        (xbeforeResize < (728) && afterResize >= (728)) || (xbeforeResize >= (728) && afterResize < (728)) ||
+        (xbeforeResize < (468) && afterResize >= (468)) ||(xbeforeResize >= (468) && afterResize < (468))) {
+        xbeforeResize = afterResize;
+        googletag.cmd.push(function() {
+            googletag.pubads().refresh([gptAdSlots[0]]);
+        });
+    }
+    if (window.screen.availWidth <= 768) {
+      restack(window.innerHeight > window.innerWidth);
+    }
+    fixDragBtn();
+    showFrameSize();    
+}
+var fileID = "";
+var loadSave = false;
+function getSavedFile() {
+    loadSave = true;
+    var htmlCode;
+    var paramObj = {};
+    paramObj.fileid = "";
+    fileID = paramObj.fileid;
+    var paramA = JSON.stringify(paramObj);
+    var httpA = new XMLHttpRequest();
+    httpA.open("POST", globalURL, true);
+    httpA.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpA.onreadystatechange = function() {
+        if(httpA.readyState == 4 && httpA.status == 200) {
+            document.getElementById("textareaCode").value = httpA.responseText;
+            window.editor.getDoc().setValue(httpA.responseText);
+            loadSave = false;
+        }
+    }
+    httpA.send(paramA);   
+}
+
+</script>
+<style>
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  color:#000000;
+  margin:0px;
+  font-size:100%;
+}
+.trytopnav {
+  height:40px;
+  overflow:hidden;
+  min-width:380px;
+  position:absolute;
+  width:100%;
+  top:99px;
+}
+.w3-bar .w3-bar-item:hover {
+  color:#757575 !important;
+}
+a.w3schoolslink {
+  padding:0 !important;
+  display:inline !important;
+}
+a.w3schoolslink:hover,a.w3schoolslink:active {
+  text-decoration:underline !important;
+  background-color:transparent !important;
+}
+#dragbar{
+  position:absolute;
+  cursor: col-resize;
+  z-index:3;
+  padding:5px;
+}
+#shield {
+  display:none;
+  top:0;
+  left:0;
+  width:100%;
+  position:absolute;
+  height:100%;
+  z-index:4;
+}
+#framesize span {
+  font-family:Consolas, monospace;
+}
+#container {
+  background-color:#f1f1f1;
+  width:100%;
+  overflow:auto;
+  position:absolute;
+  top:138px;
+  bottom:0;
+  height:auto;
+}
+#textareacontainer, #iframecontainer {
+  float:left;
+  height:100%;
+  width:50%;
+}
+#textarea, #iframe {
+  height:100%;
+  width:100%;
+  padding-bottom:10px;
+  padding-top:1px;
+}
+#textarea {
+  padding-left:10px;
+  padding-right:5px;  
+}
+#iframe {
+  padding-left:5px;
+  padding-right:10px;  
+}
+#textareawrapper {
+  width:100%;
+  height:100%;
+  background-color: #ffffff;
+  position:relative;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#iframewrapper {
+  width:100%;
+  height:100%;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#textareaCode {
+  background-color: #ffffff;
+  font-family: consolas,"courier new",monospace;
+  font-size:15px;
+  height:100%;
+  width:100%;
+  padding:8px;
+  resize: none;
+  border:none;
+  line-height:normal;    
+}
+.CodeMirror.cm-s-default {
+  line-height:normal;
+  padding: 4px;
+  height:100%;
+  width:100%;
+}
+#iframeResult, #iframeSource {
+  background-color: #ffffff;
+  height:100%;
+  width:100%;  
+}
+#stackV {background-color:#999999;}
+#stackV:hover {background-color:#BBBBBB !important;}
+#stackV.horizontal {background-color:transparent;}
+#stackV.horizontal:hover {background-color:#BBBBBB !important;}
+#stackH.horizontal {background-color:#999999;}
+#stackH.horizontal:hover {background-color:#999999 !important;}
+#textareacontainer.horizontal,#iframecontainer.horizontal{
+  height:50%;
+  float:none;
+  width:100%;
+}
+#textarea.horizontal{
+  height:100%;
+  padding-left:10px;
+  padding-right:10px;
+}
+#iframe.horizontal{
+  height:100%;
+  padding-right:10px;
+  padding-bottom:10px;
+  padding-left:10px;  
+}
+#container.horizontal{
+  min-height:200px;
+  margin-left:0;
+}
+#tryitLeaderboard {
+  overflow:hidden;
+  text-align:center;
+  margin-top:5px;
+  height:90px;
+}
+  .w3-dropdown-content {width:350px}
+  
+@media screen and (max-width: 727px) {
+  .trytopnav {top:70px;}
+  #container {top:108px;}
+
+}
+@media screen and (max-width: 467px) {
+  .trytopnav {top:60px;}
+  #container {top:98px;}
+  .w3-dropdown-content {width:100%}
+}
+@media only screen and (max-device-width: 768px) {
+  #iframewrapper {overflow: auto;}
+  #container     {min-width:320px;}
+  .stack         {display:none;}
+  #tryhome       {display:block;}
+}
+
+@font-face {
+font-family: 'fontawesome';
+src:url('../lib/fonts/fontawesome.eot?14663396');
+src:url('../lib/fonts/fontawesome.eot?14663396#iefix') format('embedded-opentype'),
+    url('../lib/fonts/fontawesome.woff?14663396') format('woff'),
+    url('../lib/fonts/fontawesome.ttf?14663396') format('truetype'),
+    url('../lib/fonts/fontawesome.svg?14663396#fontawesome') format('svg');
+font-weight:normal;
+font-style:normal;
+}
+.fa {
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transform:translate(0,0);
+}
+.fa-2x {
+  font-size:2em;
+}
+.fa-home:before {content: '\e800'; }
+.fa-save:before {content: '\e804'; }
+.fa-rotate:before {content: '\e813'; }
+.fa-menu:before { content: '\f0c9'; }
+.loader {
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+#saveLoader {
+    margin:20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#iframewrapper {
+	
+}
+
+</style>
+<!--[if lt IE 8]>
+<style>
+#textareacontainer, #iframecontainer {width:48%;}
+#container {height:500px;}
+#textarea, #iframe {width:90%;height:450px;}
+#textareaCode, #iframeResult {height:450px;}
+.stack {display:none;}
+</style>
+<![endif]-->
+<link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.w3schools.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.w3schools.com"></script><script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_170.js" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-14/html/container.html"></head>
+<body data-gr-c-s-loaded="true">
+
+
+<div id="tryitLeaderboard" style="background-color:#ffffff">
+<!-- TryitLeaderboard -->
+  <div id="div-gpt-ad-1428407818244-0">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display('div-gpt-ad-1428407818244-0'); });</script>
+  <div id="google_ads_iframe_/16833175/TryitLeaderboard_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/16833175/TryitLeaderboard_0" title="3rd party ad content" name="google_ads_iframe_/16833175/TryitLeaderboard_0" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" src="./Tryit Editor v3.5_files/saved_resource.html"></iframe></div></div>
+</div>
+<script>globalURL = 'https://tryit.w3schools.com/code_datas.php';</script>
+<div id="saveModal" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content">
+    <div class="w3-display-container">
+      <span onclick="hideAndResetModal()" class="w3-button w3-display-topright" style="font-weight:bold;">×</span>
+      <div id="preSave" class="w3-panel">
+        <h2>Save Your Code</h2>
+        <p>If you click the save button, your code will be saved, and you get an URL you can share with others.</p>
+        <div style="height:34px">
+        <p>
+            <button class="w3-btn w3-green" style="margin-right:15px" title="Save" onclick="saveFile(document.getElementById(&#39;textareaCode&#39;).value);">Save</button>
+            <button class="w3-btn w3-red" title="Cancel" style="margin-right:15px" onclick="hideAndResetModal();">Cancel</button>
+        </p>
+        </div>
+        <p>By clicking the "Save" button you agree to our <a href="javascript:void(0);" class="w3-hover-text-green" onclick="document.getElementById(&#39;saveDisclaimer&#39;).style.display=&#39;block&#39;;">terms and conditions</a>.</p>
+        <p><a href="https://www.w3schools.com/default.asp" onclick="event.preventDefault();displayError()">Report Error</a></p>
+        <div id="saveDisclaimer" style="display:none;">
+          <p>All code in shared files are supplied by users, and belongs to the poster.</p>
+          <p>All shared files are made public. No license is enforced.</p>
+          <p>Any code can be removed without warning (if it is deemed offensive, damaging or for any other reason).</p>        
+          <p>w3schools.com are not responsible or liable for any loss or damage of any kind during the usage of provided code.</p>
+        </div>
+      </div>
+      <div id="errorSave" style="display:none" class="w3-panel">
+          <h2>Your Code Could Not be Saved</h2>
+          <p>The code has too many characters.</p>
+      </div>
+      <div id="postSave" class="w3-panel" style="display:none;">
+        <div id="saveLoader" class="loader"></div>
+        <div id="saveModalSaved" style="display:none">
+          <h2>Your Code has Been Saved</h2>
+          <p>File has been saved to: <a id="shareLink" class="w3-hover-text-green" href="javascript:void(0);" target="_blank"><span id="shareLinkText"></span></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="driveSaveModal" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content">
+    <div class="w3-display-container">
+      <span onclick="resetDriveSaveModal()" class="w3-button w3-display-topright" style="font-weight:bold;">×</span>
+      <div id="driveText" class="w3-panel w3-large">
+        <h2>Save to Google Drive</h2>
+        <p>If you have a Google account, you can save this code to your Google Drive.</p>
+        <p>Google will ask you to confirm Google Drive access.</p>
+        <p><label class="w3-text-black"><b>Save file as:</b></label>
+        <input class="w3-input w3-border" type="text" id="googleFileName" value="trybs_theme_band_complete">
+        <button class="w3-button w3-light-grey w3-hover-grey w3-hover-text-white w3-margin-top" title="Save file to Google Drive" onclick="handleAuthClick(event,&#39;save&#39;)"><img style="margin-right:5px" alt="Save file to Google Drive" title="Save file to Google Drive" src="./Tryit Editor v3.5_files/driveicon.png">Save file</button>
+      </p></div>
+      <div class="w3-panel w3-large loader" id="driveSavedPanel" style="display:none">
+      <p id="driveSavedText"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="driveLoadModal" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content">
+    <div class="w3-display-container">
+      <span onclick="resetDriveLoadModal()" class="w3-button w3-display-topright" style="font-weight:bold;">×</span>
+      <div class="w3-panel w3-large">
+        <h2>Open from Google Drive</h2>
+        <p>If you have saved a file to Google Drive, you can open it here:</p>
+        <p><button class="w3-button w3-light-grey w3-hover-grey w3-hover-text-white" title="Open file from Google Drive" onclick="handleAuthClick(event,&#39;open&#39;)"><img style="margin-right:5px" alt="Open file from Google Drive" title="Open file from Google Drive" src="./Tryit Editor v3.5_files/driveicon.png">Open file</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="trytopnav">
+<div class="w3-bar w3-light-grey" style="border-top:1px solid #f1f1f1;overflow:auto">
+  <a id="tryhome" href="https://www.w3schools.com/" target="_blank" title="w3schools.com Home" class="w3-button w3-bar-item topnav-icons fa fa-home" style="font-size:28px;color:#999999;margin-top:-2px"></a>
+  <a href="javascript:void(0);" onclick="openMenu()" id="menuButton" title="Open Menu" class="w3-dropdown-click w3-button w3-bar-item topnav-icons fa fa-menu" style="font-size:28px;color:#999999;margin-top:-2px"></a>
+  <a href="javascript:void(0);" onclick="restack(currentStack)" title="Change Orientation" class="w3-button w3-bar-item topnav-icons fa fa-rotate" style="font-size:28px;color:#999999;margin-top:-2px"></a>
+  <button class="w3-button w3-bar-item w3-green w3-hover-white w3-hover-text-green" onclick="submitTryit(1)">Run »</button>
+  <span class="w3-right w3-hide-medium w3-hide-small" style="padding:8px 8px 8px 8px;display:block"></span>
+  <span class="w3-right w3-hide-small" style="padding:8px 0;display:block;float:right;"><span id="framesize">Result Size: <span>1420 x 253</span></span></span>
+</div>
+
+</div>
+<div id="shield" style="display: none;"></div>
+
+<a href="javascript:void(0)" id="dragbar" style="height: 5px; top: 392.5px; left: 5px; width: 1420px; cursor: row-resize;"></a>
+<div id="container" class=" horizontal">
+<div id="navbarDropMenu" class="w3-dropdown-content w3-bar-block w3-border" style="z-index:5">
+<span onclick="openMenu()" class="w3-button w3-display-topright w3-transparent" style="font-weight:bold;">×</span>
+  <div class="w3-bar-block">
+    <a class="w3-bar-item w3-button" href="javascript:void(0);" title="Change Orientaton" onclick="openMenu();restack(currentStack)"><i class="fa fa-rotate" style="font-size:26px;margin-left:-4px;margin-right:8px"></i><span style="position:relative;top:-4px;left:2px;">Change Orientation</span></a>
+    <a class="w3-bar-item w3-button" href="javascript:void(0);" title="Save" onclick="openMenu();click_savebtn()"><i class="fa fa-save" style="font-size:26px;margin-right:10px;"></i><span style="position:relative;top:-4px;left:2px;">Save Code</span></a>
+    <a class="w3-bar-item w3-button" href="javascript:void(0);" id="saveGDriveBtn" title="Save to Google Drive" onclick="openMenu();click_google_savebtn()"><img src="./Tryit Editor v3.5_files/driveicon_32.png" alt="Save to Google Drive" title="Save to Google Drive" style="margin-right:10px;width:24px;"><span style="position:relative;left:1px;">Save to Google Drive</span></a>
+    <a class="w3-bar-item w3-button" href="javascript:void(0);" id="loadGDriveBtn" title="Load from Google Drive" onclick="openMenu();click_google_loadbtn()"><img src="./Tryit Editor v3.5_files/driveicon_32.png" alt="Load from Google Drive" title="Load from Google Drive" style="margin-right:10px;width:24px;"><span style="position:relative;left:1px;">Load from Google Drive</span></a>
+  </div>
+  <footer class="w3-container w3-small w3-light-gray">
+  <p><a style="display:inline;padding:0;" href="https://www.w3schools.com/about/about_privacy.asp" target="_blank" onclick="openMenu();" class="w3-hover-none w3-hover-text-green">Privacy policy</a> and 
+  <a style="display:inline;padding:0;" href="https://www.w3schools.com/about/about_copyright.asp" target="_blank" onclick="openMenu();" class="w3-hover-none w3-hover-text-green">Copyright 1999-2017</a></p>
+  </footer>
+</div>
+<div id="menuOverlay" class="w3-overlay w3-transparent" style="cursor:pointer;z-index:4"></div>
+  <div id="textareacontainer" class=" horizontal" style="height: 50%; width: 100%;">
+    <div id="textarea" class=" horizontal">
+      <div id="textareawrapper">
+        <textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false" style="display: none;">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;!-- Theme Made By www.w3schools.com - No Copyright --&gt;
+  &lt;title&gt;Bootstrap Theme The Band&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"&gt;
+  &lt;link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"&gt;
+  &lt;link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"&gt;&lt;/script&gt;
+  &lt;style&gt;
+  body {
+      font: 400 15px/1.8 Lato, sans-serif;
+      color: #777;
+  }
+  h3, h4 {
+      margin: 10px 0 30px 0;
+      letter-spacing: 10px;      
+      font-size: 20px;
+      color: #111;
+  }
+  .container {
+      padding: 80px 120px;
+  }
+  .person {
+      border: 10px solid transparent;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+  }
+  .person:hover {
+      border-color: #f1f1f1;
+  }
+  .carousel-inner img {
+      -webkit-filter: grayscale(90%);
+      filter: grayscale(90%); /* make all photos black and white */ 
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+  }
+  .carousel-caption h3 {
+      color: #fff !important;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+      background: #2d2d30;
+      color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail p {
+      margin-top: 15px;
+      color: #555;
+  }
+  .btn {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #f1f1f1;
+      border-radius: 0;
+      transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+      border: 1px solid #333;
+      background-color: #fff;
+      color: #000;
+  }
+  .modal-header, h4, .close {
+      background-color: #333;
+      color: #fff !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-header, .modal-body {
+      padding: 40px 50px;
+  }
+  .nav-tabs li a {
+      color: #777;
+  }
+  #googleMap {
+      width: 100%;
+      height: 400px;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+  }  
+  .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: #2d2d30;
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+      color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+  }
+  .open .dropdown-toggle {
+      color: #fff;
+      background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+      color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: red !important;
+  }
+  footer {
+      background-color: #2d2d30;
+      color: #f5f5f5;
+      padding: 32px;
+  }
+  footer a {
+      color: #f5f5f5;
+  }
+  footer a:hover {
+      color: #777;
+      text-decoration: none;
+  }  
+  .form-control {
+      border-radius: 0;
+  }
+  textarea {
+      resize: none;
+  }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50"&gt;
+
+&lt;nav class="navbar navbar-default navbar-fixed-top"&gt;
+  &lt;div class="container-fluid"&gt;
+    &lt;div class="navbar-header"&gt;
+      &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;                        
+      &lt;/button&gt;
+      &lt;a class="navbar-brand" href="#myPage"&gt;Logo&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="collapse navbar-collapse" id="myNavbar"&gt;
+      &lt;ul class="nav navbar-nav navbar-right"&gt;
+        &lt;li&gt;&lt;a href="#myPage"&gt;HOME&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#band"&gt;BAND&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tour"&gt;TOUR&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;CONTACT&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="dropdown"&gt;
+          &lt;a class="dropdown-toggle" data-toggle="dropdown" href="#"&gt;MORE
+          &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;ul class="dropdown-menu"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Merchandise&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Extras&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Media&lt;/a&gt;&lt;/li&gt; 
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;&lt;span class="glyphicon glyphicon-search"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;div id="myCarousel" class="carousel slide" data-ride="carousel"&gt;
+    &lt;!-- Indicators --&gt;
+    &lt;ol class="carousel-indicators"&gt;
+      &lt;li data-target="#myCarousel" data-slide-to="0" class="active"&gt;&lt;/li&gt;
+      &lt;li data-target="#myCarousel" data-slide-to="1"&gt;&lt;/li&gt;
+      &lt;li data-target="#myCarousel" data-slide-to="2"&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;!-- Wrapper for slides --&gt;
+    &lt;div class="carousel-inner" role="listbox"&gt;
+      &lt;div class="item active"&gt;
+        &lt;img src="ny.jpg" alt="New York" width="1200" height="700"&gt;
+        &lt;div class="carousel-caption"&gt;
+          &lt;h3&gt;New York&lt;/h3&gt;
+          &lt;p&gt;The atmosphere in New York is lorem ipsum.&lt;/p&gt;
+        &lt;/div&gt;      
+      &lt;/div&gt;
+
+      &lt;div class="item"&gt;
+        &lt;img src="chicago.jpg" alt="Chicago" width="1200" height="700"&gt;
+        &lt;div class="carousel-caption"&gt;
+          &lt;h3&gt;Chicago&lt;/h3&gt;
+          &lt;p&gt;Thank you, Chicago - A night we won't forget.&lt;/p&gt;
+        &lt;/div&gt;      
+      &lt;/div&gt;
+    
+      &lt;div class="item"&gt;
+        &lt;img src="la.jpg" alt="Los Angeles" width="1200" height="700"&gt;
+        &lt;div class="carousel-caption"&gt;
+          &lt;h3&gt;LA&lt;/h3&gt;
+          &lt;p&gt;Even though the traffic was a mess, we had the best time playing at Venice Beach!&lt;/p&gt;
+        &lt;/div&gt;      
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Left and right controls --&gt;
+    &lt;a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"&gt;
+      &lt;span class="glyphicon glyphicon-chevron-left" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span class="sr-only"&gt;Previous&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"&gt;
+      &lt;span class="glyphicon glyphicon-chevron-right" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span class="sr-only"&gt;Next&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- Container (The Band Section) --&gt;
+&lt;div id="band" class="container text-center"&gt;
+  &lt;h3&gt;THE BAND&lt;/h3&gt;
+  &lt;p&gt;&lt;em&gt;We love music!&lt;/em&gt;&lt;/p&gt;
+  &lt;p&gt;We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+  &lt;br&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-sm-4"&gt;
+      &lt;p class="text-center"&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/p&gt;&lt;br&gt;
+      &lt;a href="#demo" data-toggle="collapse"&gt;
+        &lt;img src="bandmember.jpg" class="img-circle person" alt="Random Name" width="255" height="255"&gt;
+      &lt;/a&gt;
+      &lt;div id="demo" class="collapse"&gt;
+        &lt;p&gt;Guitarist and Lead Vocalist&lt;/p&gt;
+        &lt;p&gt;Loves long walks on the beach&lt;/p&gt;
+        &lt;p&gt;Member since 1988&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm-4"&gt;
+      &lt;p class="text-center"&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/p&gt;&lt;br&gt;
+      &lt;a href="#demo2" data-toggle="collapse"&gt;
+        &lt;img src="bandmember.jpg" class="img-circle person" alt="Random Name" width="255" height="255"&gt;
+      &lt;/a&gt;
+      &lt;div id="demo2" class="collapse"&gt;
+        &lt;p&gt;Drummer&lt;/p&gt;
+        &lt;p&gt;Loves drummin'&lt;/p&gt;
+        &lt;p&gt;Member since 1988&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm-4"&gt;
+      &lt;p class="text-center"&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/p&gt;&lt;br&gt;
+      &lt;a href="#demo3" data-toggle="collapse"&gt;
+        &lt;img src="bandmember.jpg" class="img-circle person" alt="Random Name" width="255" height="255"&gt;
+      &lt;/a&gt;
+      &lt;div id="demo3" class="collapse"&gt;
+        &lt;p&gt;Bass player&lt;/p&gt;
+        &lt;p&gt;Loves math&lt;/p&gt;
+        &lt;p&gt;Member since 2005&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Container (TOUR Section) --&gt;
+&lt;div id="tour" class="bg-1"&gt;
+  &lt;div class="container"&gt;
+    &lt;h3 class="text-center"&gt;TOUR DATES&lt;/h3&gt;
+    &lt;p class="text-center"&gt;Lorem ipsum we'll play you some music.&lt;br&gt; Remember to book your tickets!&lt;/p&gt;
+    &lt;ul class="list-group"&gt;
+      &lt;li class="list-group-item"&gt;September &lt;span class="label label-danger"&gt;Sold Out!&lt;/span&gt;&lt;/li&gt;
+      &lt;li class="list-group-item"&gt;October &lt;span class="label label-danger"&gt;Sold Out!&lt;/span&gt;&lt;/li&gt; 
+      &lt;li class="list-group-item"&gt;November &lt;span class="badge"&gt;3&lt;/span&gt;&lt;/li&gt; 
+    &lt;/ul&gt;
+    
+    &lt;div class="row text-center"&gt;
+      &lt;div class="col-sm-4"&gt;
+        &lt;div class="thumbnail"&gt;
+          &lt;img src="paris.jpg" alt="Paris" width="400" height="300"&gt;
+          &lt;p&gt;&lt;strong&gt;Paris&lt;/strong&gt;&lt;/p&gt;
+          &lt;p&gt;Friday 27 November 2015&lt;/p&gt;
+          &lt;button class="btn" data-toggle="modal" data-target="#myModal"&gt;Buy Tickets&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="col-sm-4"&gt;
+        &lt;div class="thumbnail"&gt;
+          &lt;img src="newyork.jpg" alt="New York" width="400" height="300"&gt;
+          &lt;p&gt;&lt;strong&gt;New York&lt;/strong&gt;&lt;/p&gt;
+          &lt;p&gt;Saturday 28 November 2015&lt;/p&gt;
+          &lt;button class="btn" data-toggle="modal" data-target="#myModal"&gt;Buy Tickets&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="col-sm-4"&gt;
+        &lt;div class="thumbnail"&gt;
+          &lt;img src="sanfran.jpg" alt="San Francisco" width="400" height="300"&gt;
+          &lt;p&gt;&lt;strong&gt;San Francisco&lt;/strong&gt;&lt;/p&gt;
+          &lt;p&gt;Sunday 29 November 2015&lt;/p&gt;
+          &lt;button class="btn" data-toggle="modal" data-target="#myModal"&gt;Buy Tickets&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Modal --&gt;
+  &lt;div class="modal fade" id="myModal" role="dialog"&gt;
+    &lt;div class="modal-dialog"&gt;
+    
+      &lt;!-- Modal content--&gt;
+      &lt;div class="modal-content"&gt;
+        &lt;div class="modal-header"&gt;
+          &lt;button type="button" class="close" data-dismiss="modal"&gt;×&lt;/button&gt;
+          &lt;h4&gt;&lt;span class="glyphicon glyphicon-lock"&gt;&lt;/span&gt; Tickets&lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-body"&gt;
+          &lt;form role="form"&gt;
+            &lt;div class="form-group"&gt;
+              &lt;label for="psw"&gt;&lt;span class="glyphicon glyphicon-shopping-cart"&gt;&lt;/span&gt; Tickets, $23 per person&lt;/label&gt;
+              &lt;input type="number" class="form-control" id="psw" placeholder="How many?"&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+              &lt;label for="usrname"&gt;&lt;span class="glyphicon glyphicon-user"&gt;&lt;/span&gt; Send To&lt;/label&gt;
+              &lt;input type="text" class="form-control" id="usrname" placeholder="Enter email"&gt;
+            &lt;/div&gt;
+              &lt;button type="submit" class="btn btn-block"&gt;Pay 
+                &lt;span class="glyphicon glyphicon-ok"&gt;&lt;/span&gt;
+              &lt;/button&gt;
+          &lt;/form&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-footer"&gt;
+          &lt;button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"&gt;
+            &lt;span class="glyphicon glyphicon-remove"&gt;&lt;/span&gt; Cancel
+          &lt;/button&gt;
+          &lt;p&gt;Need &lt;a href="#"&gt;help?&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Container (Contact Section) --&gt;
+&lt;div id="contact" class="container"&gt;
+  &lt;h3 class="text-center"&gt;Contact&lt;/h3&gt;
+  &lt;p class="text-center"&gt;&lt;em&gt;We love our fans!&lt;/em&gt;&lt;/p&gt;
+
+  &lt;div class="row"&gt;
+    &lt;div class="col-md-4"&gt;
+      &lt;p&gt;Fan? Drop a note.&lt;/p&gt;
+      &lt;p&gt;&lt;span class="glyphicon glyphicon-map-marker"&gt;&lt;/span&gt;Chicago, US&lt;/p&gt;
+      &lt;p&gt;&lt;span class="glyphicon glyphicon-phone"&gt;&lt;/span&gt;Phone: +00 1515151515&lt;/p&gt;
+      &lt;p&gt;&lt;span class="glyphicon glyphicon-envelope"&gt;&lt;/span&gt;Email: mail@mail.com&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-8"&gt;
+      &lt;div class="row"&gt;
+        &lt;div class="col-sm-6 form-group"&gt;
+          &lt;input class="form-control" id="name" name="name" placeholder="Name" type="text" required&gt;
+        &lt;/div&gt;
+        &lt;div class="col-sm-6 form-group"&gt;
+          &lt;input class="form-control" id="email" name="email" placeholder="Email" type="email" required&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"&gt;&lt;/textarea&gt;
+      &lt;br&gt;
+      &lt;div class="row"&gt;
+        &lt;div class="col-md-12 form-group"&gt;
+          &lt;button class="btn pull-right" type="submit"&gt;Send&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;h3 class="text-center"&gt;From The Blog&lt;/h3&gt;  
+  &lt;ul class="nav nav-tabs"&gt;
+    &lt;li class="active"&gt;&lt;a data-toggle="tab" href="#home"&gt;Mike&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a data-toggle="tab" href="#menu1"&gt;Chandler&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a data-toggle="tab" href="#menu2"&gt;Peter&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div class="tab-content"&gt;
+    &lt;div id="home" class="tab-pane fade in active"&gt;
+      &lt;h2&gt;Mike Ross, Manager&lt;/h2&gt;
+      &lt;p&gt;Man, we've been on the road for some time now. Looking forward to lorem ipsum.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id="menu1" class="tab-pane fade"&gt;
+      &lt;h2&gt;Chandler Bing, Guitarist&lt;/h2&gt;
+      &lt;p&gt;Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id="menu2" class="tab-pane fade"&gt;
+      &lt;h2&gt;Peter Griffin, Bass player&lt;/h2&gt;
+      &lt;p&gt;I mean, sometimes I enjoy the show, but other times I enjoy other things.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Add Google Maps --&gt;
+&lt;div id="googleMap"&gt;&lt;/div&gt;
+&lt;script&gt;
+function myMap() {
+var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+marker.setMap(map);
+}
+&lt;/script&gt;
+&lt;script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&amp;callback=myMap"&gt;&lt;/script&gt;
+&lt;!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+--&gt;
+
+&lt;!-- Footer --&gt;
+&lt;footer class="text-center"&gt;
+  &lt;a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP"&gt;
+    &lt;span class="glyphicon glyphicon-chevron-up"&gt;&lt;/span&gt;
+  &lt;/a&gt;&lt;br&gt;&lt;br&gt;
+  &lt;p&gt;Bootstrap Theme Made By &lt;a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools"&gt;www.w3schools.com&lt;/a&gt;&lt;/p&gt; 
+&lt;/footer&gt;
+
+&lt;script&gt;
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea><div class="CodeMirror cm-s-default CodeMirror-wrap CodeMirror-focused"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 118px; left: 305px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="display: block; bottom: 0px;"><div style="min-width: 1px; height: 8458px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: -15px; border-right-width: 15px; min-height: 8450px; padding-right: 15px; padding-bottom: 0px;"><div style="position: relative; top: 2844px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 301px; top: 306px; height: 18px;">&nbsp;</div></div><div class="CodeMirror-code" style=""><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">div</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"container-fluid"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">div</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"navbar-header"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">button</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">type</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"button"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"navbar-toggle"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">data-toggle</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"collapse"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">data-target</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#myNavbar"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">span</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"icon-bar"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">span</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">span</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"icon-bar"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">span</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">span</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"icon-bar"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">span</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">button</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"navbar-brand"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">href</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#myPage"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml">Logo</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">div</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">div</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"collapse navbar-collapse"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">id</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"myNavbar"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">ul</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"nav navbar-nav navbar-right"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">href</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#myPage"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml">HOME</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">href</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#band"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml">BAND</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">href</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#tour"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml">TOUR</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">href</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#contact"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml">CONTACT</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"dropdown"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"dropdown-toggle"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">data-toggle</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"dropdown"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">href</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml">MORE</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">span</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"caret"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">span</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">ul</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"dropdown-menu"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">href</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml">Merchandise</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">href</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml">Extras</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">href</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml">Media</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span><span class="cm-m-xml"> </span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">ul</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">href</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;</span><span class="cm-m-xml cm-tag">span</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"glyphicon glyphicon-search"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">span</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">a</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">ul</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">div</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">div</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml cm-tag cm-bracket">&lt;/</span><span class="cm-m-xml cm-tag">nav</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">&#8203;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">div</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">id</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"myCarousel"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"carousel slide"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">data-ride</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"carousel"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp;</span><span class="cm-m-xml cm-comment">&lt;!-- Indicators --&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">ol</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"carousel-indicators"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">data-target</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#myCarousel"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">data-slide-to</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"0"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"active"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-m-xml"> &nbsp; &nbsp; &nbsp;</span><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">data-target</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"#myCarousel"</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">data-slide-to</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"1"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-m-xml cm-tag">li</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " style="display: none;"><span style="padding-right: 0.1px;"><span class="cm-m-xml cm-tag cm-bracket">&lt;</span><span class="cm-m-xml cm-tag">nav</span><span class="cm-m-xml"> </span><span class="cm-m-xml cm-attribute">class</span><span class="cm-m-xml">=</span><span class="cm-m-xml cm-string">"navbar navbar-default navbar-fixed-top"</span><span class="cm-m-xml cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 15px; width: 1px; border-bottom: 0px solid transparent; top: 8450px;"></div><div class="CodeMirror-gutters" style="display: none; height: 8465px;"></div></div></div>
+        <form id="codeForm" autocomplete="off" style="margin:0px;display:none;">
+          <input type="hidden" name="code" id="code">
+        </form>
+       </div>
+    </div>
+  </div>
+  <div id="iframecontainer" class=" horizontal" style="height: 50%; width: 100%;">
+    <div id="iframe" class=" horizontal">
+      <div id="iframewrapper"><iframe frameborder="0" id="iframeResult" name="iframeResult" src="./Tryit Editor v3.5_files/saved_resource(1).html"></iframe></div>
+    </div>
+  </div>
+</div>
+<div id="err_form" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content w3-display-container">
+      <span onclick="document.getElementById(&#39;err_form&#39;).style.display=&#39;none&#39;" class="w3-button w3-display-topright w3-text-white w3-padding w3-green" style="font-weight:bold;">×</span>
+      <div class="w3-container w3-green">
+        <h2>Report a Problem:</h2>
+      </div>
+<form class="w3-container"> 
+<p><label for="err_email">Your E-mail:</label>
+<input class="w3-input w3-border" type="text" style="width:100%" id="err_email" name="err_email">   
+</p>
+<p>
+<label for="err_email">Page address:</label>
+<input class="w3-input w3-border" type="text" style="width:100%" id="err_url" name="err_url" disabled="disabled">
+</p>
+<p>
+<label for="err_email">Description:</label>
+<textarea rows="10" class="w3-input w3-border" id="err_desc" name="err_desc" style="width:100%;"></textarea>   
+</p>
+<button class="w3-btn w3-right w3-green w3-margin-bottom" type="button" onclick="sendErr()">Submit</button>
+</form>
+
+  </div>
+</div>
+<script>
+submitTryit()
+
+function submitTryit(n) {
+  if (window.editor) {
+    window.editor.save();
+  }
+  var text = document.getElementById("textareaCode").value;
+  var ifr = document.createElement("iframe");
+  ifr.setAttribute("frameborder", "0");
+  ifr.setAttribute("id", "iframeResult");
+  ifr.setAttribute("name", "iframeResult");  
+  document.getElementById("iframewrapper").innerHTML = "";
+  document.getElementById("iframewrapper").appendChild(ifr);
+  if (loadSave == true ) {
+    ifr.setAttribute("src", "/code/opentext.htm");
+  } else if (fileID != "" && loadSave == false) {
+    var t=text;
+    t=t.replace(/=/gi,"w3equalsign");
+    t=t.replace(/\+/gi,"w3plussign");    
+    var pos=t.search(/script/i)
+    while (pos>0) {
+      t=t.substring(0,pos) + "w3" + t.substr(pos,3) + "w3" + t.substr(pos+3,3) + "tag" + t.substr(pos+6);
+	    pos=t.search(/script/i);
+    }
+    document.getElementById("code").value=t;
+    document.getElementById("codeForm").action = "https://tryit.w3schools.com/tryit_view.php?x=" + Math.random();
+    document.getElementById('codeForm').method = "post";
+    document.getElementById('codeForm').acceptCharset = "utf-8";
+    document.getElementById('codeForm').target = "iframeResult";
+    document.getElementById("codeForm").submit();
+  } else {
+    var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
+    ifrw.document.open();
+    ifrw.document.write(text);  
+    ifrw.document.close();
+    //23.02.2016: contentEditable is set to true, to fix text-selection (bug) in firefox.
+    //(and back to false to prevent the content from being editable)
+    //(To reproduce the error: Select text in the result window with, and without, the contentEditable statements below.)  
+    if (ifrw.document.body && !ifrw.document.body.isContentEditable) {
+      ifrw.document.body.contentEditable = true;
+      ifrw.document.body.contentEditable = false;
+    }
+  }
+}
+var currentStack=true;
+if ((window.screen.availWidth <= 768 && window.innerHeight > window.innerWidth) || " horizontal" == " horizontal") {restack(true);}
+function restack(horizontal) {
+    var tc, ic, t, i, c, f, sv, sh, d, height, flt, width;
+    tc = document.getElementById("textareacontainer");
+    ic = document.getElementById("iframecontainer");
+    t = document.getElementById("textarea");
+    i = document.getElementById("iframe");
+    c = document.getElementById("container");    
+    sv = document.getElementById("stackV");
+    sh = document.getElementById("stackH");
+    tc.className = tc.className.replace("horizontal", "");
+    ic.className = ic.className.replace("horizontal", "");        
+    t.className = t.className.replace("horizontal", "");        
+    i.className = i.className.replace("horizontal", "");        
+    c.className = c.className.replace("horizontal", "");                        
+    if (sv) {sv.className = sv.className.replace("horizontal", "")};
+    if (sv) {sh.className = sh.className.replace("horizontal", "")};
+    stack = "";
+    if (horizontal) {
+        tc.className = tc.className + " horizontal";
+        ic.className = ic.className + " horizontal";        
+        t.className = t.className + " horizontal";        
+        i.className = i.className + " horizontal";                
+        c.className = c.className + " horizontal";                
+        if (sv) {sv.className = sv.className + " horizontal"};
+        if (sv) {sh.className = sh.className + " horizontal"};
+        stack = " horizontal";
+        document.getElementById("textareacontainer").style.height = "50%";
+        document.getElementById("iframecontainer").style.height = "50%";
+        document.getElementById("textareacontainer").style.width = "100%";
+        document.getElementById("iframecontainer").style.width = "100%";
+        currentStack=false;
+    } else {
+        document.getElementById("textareacontainer").style.height = "100%";
+        document.getElementById("iframecontainer").style.height = "100%";
+        document.getElementById("textareacontainer").style.width = "50%";
+        document.getElementById("iframecontainer").style.width = "50%";
+        currentStack=true;        
+    }
+    fixDragBtn();
+    showFrameSize();
+}
+function showFrameSize() {
+  var t;
+  var width, height;
+  width = Number(w3_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
+  height = Number(w3_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
+  document.getElementById("framesize").innerHTML = "Result Size: <span>" + width + " x " + height + "</span>";
+}
+var dragging = false;
+var stack;
+function fixDragBtn() {
+  var textareawidth, leftpadding, dragleft, containertop, buttonwidth
+  var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+  if (stack != " horizontal") {
+    document.getElementById("dragbar").style.width = "5px";    
+    textareasize = Number(w3_getStyleValue(document.getElementById("textareawrapper"), "width").replace("px", ""));
+    leftpadding = Number(w3_getStyleValue(document.getElementById("textarea"), "padding-left").replace("px", ""));
+    buttonwidth = Number(w3_getStyleValue(document.getElementById("dragbar"), "width").replace("px", ""));
+    textareaheight = w3_getStyleValue(document.getElementById("textareawrapper"), "height");
+    dragleft = textareasize + leftpadding + (leftpadding / 2) - (buttonwidth / 2);
+    document.getElementById("dragbar").style.top = containertop + "px";
+    document.getElementById("dragbar").style.left = dragleft + "px";
+    document.getElementById("dragbar").style.height = textareaheight;
+    document.getElementById("dragbar").style.cursor = "col-resize";
+    
+  } else {
+    document.getElementById("dragbar").style.height = "5px";
+    if (window.getComputedStyle) {
+        textareawidth = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("height");
+        textareaheight = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("width");
+        leftpadding = window.getComputedStyle(document.getElementById("textarea"),null).getPropertyValue("padding-top");
+        buttonwidth = window.getComputedStyle(document.getElementById("dragbar"),null).getPropertyValue("height");
+    } else {
+        dragleft = document.getElementById("textareawrapper").currentStyle["width"];
+    }
+    textareawidth = Number(textareawidth.replace("px", ""));
+    leftpadding = Number(leftpadding .replace("px", ""));
+    buttonwidth = Number(buttonwidth .replace("px", ""));
+    dragleft = containertop + textareawidth + leftpadding + (leftpadding / 2);
+    document.getElementById("dragbar").style.top = dragleft + "px";
+    document.getElementById("dragbar").style.left = "5px";
+    document.getElementById("dragbar").style.width = textareaheight;
+    document.getElementById("dragbar").style.cursor = "row-resize";        
+  }
+}
+function dragstart(e) {
+  e.preventDefault();
+  dragging = true;
+  var main = document.getElementById("iframecontainer");
+}
+function dragmove(e) {
+  if (dragging) 
+  {
+    document.getElementById("shield").style.display = "block";        
+    if (stack != " horizontal") {
+      var percentage = (e.pageX / window.innerWidth) * 100;
+      if (percentage > 5 && percentage < 98) {
+        var mainPercentage = 100-percentage;
+        document.getElementById("textareacontainer").style.width = percentage + "%";
+        document.getElementById("iframecontainer").style.width = mainPercentage + "%";
+        fixDragBtn();
+      }
+    } else {
+      var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+      var percentage = ((e.pageY - containertop + 20) / (window.innerHeight - containertop + 20)) * 100;
+      if (percentage > 5 && percentage < 98) {
+        var mainPercentage = 100-percentage;
+        document.getElementById("textareacontainer").style.height = percentage + "%";
+        document.getElementById("iframecontainer").style.height = mainPercentage + "%";
+        fixDragBtn();
+      }
+    }
+    showFrameSize();    
+  }
+}
+function dragend() {
+  document.getElementById("shield").style.display = "none";
+  dragging = false;
+  if (window.editor) {
+    window.editor.refresh();
+  }
+}
+if (window.addEventListener) {              
+  document.getElementById("dragbar").addEventListener("mousedown", function(e) {dragstart(e);});
+  document.getElementById("dragbar").addEventListener("touchstart", function(e) {dragstart(e);});
+  window.addEventListener("mousemove", function(e) {dragmove(e);});
+  window.addEventListener("touchmove", function(e) {dragmove(e);});
+  window.addEventListener("mouseup", dragend);
+  window.addEventListener("touchend", dragend);
+  window.addEventListener("load", fixDragBtn);
+  window.addEventListener("load", showFrameSize);
+}
+function click_savebtn() {
+  if (window.editor) {
+    window.editor.save();
+  }
+  document.getElementById('saveModal').style.display = 'block';
+}
+function click_google_savebtn() {
+  if (window.editor) {
+    window.editor.save();
+  }
+  document.getElementById('driveSaveModal').style.display='block'
+}
+
+function click_google_loadbtn() {
+  document.getElementById('driveLoadModal').style.display='block'
+}
+
+
+function colorcoding() {
+  var ua = navigator.userAgent;
+  //Opera Mini refreshes the page when trying to edit the textarea.
+  if (ua && ua.toUpperCase().indexOf("OPERA MINI") > -1) { return false; }
+  window.editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
+    mode: "text/html",
+    htmlMode: true,
+    lineWrapping: true,
+    smartIndent: false,
+    addModeClass: true
+  });
+//  window.editor.on("change", function () {window.editor.save();});
+}
+colorcoding();
+
+function w3_getStyleValue(elmnt,style) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+    } else {
+        return elmnt.currentStyle[style];
+    }
+}
+//SAVE AND OPEN SCRIPT
+var oauthToken;
+var userAction;
+var pickerApiLoaded;
+var developerKey = 'AIzaSyAMZDPXiGcCNWs1UCWG9LS6kkW5YiABfJ0';
+var CLIENT_ID = '451843133508-ckbr5r6ch1ofqbmh87oll4u6ltinqv2t.apps.googleusercontent.com';
+var SCOPES = ['https://www.googleapis.com/auth/drive.file'];
+
+//Check if current user has authorized this application
+function checkAuth() {
+    gapi.auth.authorize(
+    {
+        'client_id': CLIENT_ID,
+        'scope': SCOPES.join(' '),
+        'immediate': true
+    }, handleAuthResult);
+}
+
+//Handle response from authorization server
+function handleAuthResult(authResult) {
+    if (authResult && !authResult.error) {
+        oauthToken = authResult.access_token;
+        loadApi();
+    }
+}
+
+// Initiate auth flow in response to user clicking authorize button
+function handleAuthClick(event,userClick) {
+    userAction = userClick;
+    gapi.auth.authorize(
+        {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
+        handleAuthResult);
+    return false;
+}
+
+// Load API library
+function loadApi() {
+    gapi.client.load('drive', 'v3');
+    gapi.load('picker', {'callback': onPickerApiLoad});
+}
+function onPickerApiLoad() {
+    pickerApiLoaded = true;
+    if (userAction=="save") {
+        userAction="";
+        document.getElementById('driveText').style.display='none';
+        document.getElementById('driveSavedPanel').style.display='block';
+        createFileWithHTMLContent(document.getElementById('googleFileName').value,document.getElementById('textareaCode').value)     
+    }
+    if (userAction=="open") {
+        userAction="";
+        createPicker();
+    }
+}
+
+// Create and render a Picker object for picking HTML file
+function createPicker() {
+    if (pickerApiLoaded) {
+        var view = new google.picker.View(google.picker.ViewId.DOCS);
+        view.setMimeTypes("text/html");
+        var picker = new google.picker.PickerBuilder().
+            addView(view).
+            setOAuthToken(oauthToken).
+            setDeveloperKey(developerKey).
+            setCallback(pickerCallback).
+            build();
+        picker.setVisible(true);
+    }
+}
+// Put content of file in tryit editor
+function pickerCallback(data) {
+    var docID = '';
+    if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+        var doc = data[google.picker.Response.DOCUMENTS][0];
+        docID = doc[google.picker.Document.ID];
+        getContentOfFile(docID);
+    }
+}
+
+//Get contents
+function getContentOfFile(theID){
+    gapi.client.request({'path': '/drive/v2/files/'+theID,'method': 'GET',callback: function ( theResponseJS, theResponseTXT ) {
+        var myToken = gapi.auth.getToken();
+        var myXHR   = new XMLHttpRequest();
+        myXHR.open('GET', theResponseJS.downloadUrl, true );
+        myXHR.setRequestHeader('Authorization', 'Bearer ' + myToken.access_token );
+        myXHR.onreadystatechange = function( theProgressEvent ) {
+            if (myXHR.readyState == 4) {
+                if ( myXHR.status == 200 ) {
+                    var code = myXHR.response;
+                    document.getElementById("textareaCode").value=code;
+                    window.editor.getDoc().setValue(code);
+                    submitTryit(1);
+                    resetDriveLoadModal();
+                }
+            }
+        }
+        myXHR.send();
+        }
+    });
+}
+
+var createFileWithHTMLContent = function(name,data,callback) {
+    const boundary = '-------314159265358979323846';
+    const delimiter = "\r\n--" + boundary + "\r\n";
+    const close_delim = "\r\n--" + boundary + "--";
+    const contentType = 'text/html';
+
+    var metadata = {
+        'name': name,
+        'mimeType': contentType
+    };
+
+    var multipartRequestBody =
+        delimiter +
+        'Content-Type: application/json\r\n\r\n' +
+        JSON.stringify(metadata) +
+        delimiter +
+        'Content-Type: ' + contentType + '\r\n\r\n' +
+        data +
+        close_delim;
+
+    var request = gapi.client.request({
+        'path': '/upload/drive/v3/files',
+        'method': 'POST',
+        'params': {'uploadType': 'multipart'},
+        'headers': {
+            'Content-Type': 'multipart/related; boundary="' + boundary + '"'
+        },
+        'body': multipartRequestBody});
+    if (!callback) {
+        callback = function(file) {
+            console.log(file);
+            document.getElementById("driveSavedText").innerHTML = file.name + " saved in Google Drive";
+            document.getElementById("driveSavedPanel").className = "w3-panel w3-large";
+        };
+    }
+    request.execute(callback);
+}
+
+if (navigator.userAgent.indexOf("MSIE") > 0 || navigator.userAgent.indexOf("Edge") > 0) {
+    document.getElementById("saveGDriveBtn").style.display = "none";
+    document.getElementById("loadGDriveBtn").style.display = "none";
+}
+
+
+function resetDriveSaveModal() {
+    document.getElementById('driveSavedText').innerHTML='';
+    document.getElementById('driveSaveModal').style.display='none'
+    document.getElementById('driveSavedPanel').style.display='none'
+    document.getElementById('driveText').style.display='block'
+    document.getElementById("driveSavedPanel").className = "w3-panel w3-large loader";
+}
+function resetDriveLoadModal() {
+    document.getElementById('driveLoadModal').style.display='none'
+}
+
+function saveFile(code) {
+    document.getElementById('preSave').style.display='none';
+    if (code.length>20000) {
+        document.getElementById('errorSave').style.display='block';    
+        return;
+    }
+    document.getElementById('postSave').style.display='block';    
+    var paramObj = {};
+    paramObj.code = code;
+    var paramB = JSON.stringify(paramObj);
+    var httpB = new XMLHttpRequest();
+    httpB.open("POST", globalURL, true);
+
+    httpB.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    httpB.onreadystatechange = function() {
+    if(httpB.readyState == 4 && httpB.status == 200) {
+        if(httpB.responseText.substr(0,2) == "OK" ) {
+          var getId = httpB.responseText.substr(2);
+          document.getElementById("shareLink").href = "/code/tryit.asp?filename=" + getId;
+          document.getElementById("shareLinkText").innerHTML = "https://www.w3schools.com/code/tryit.asp?filename=" + getId;
+          document.getElementById('saveLoader').style.display = "none";
+          document.getElementById("saveModalSaved").style.display  = "block";
+        }
+    }
+    }
+    httpB.send(paramB);
+}
+function hideAndResetModal() {
+    document.getElementById("saveModal").style.display = "none";
+    document.getElementById('preSave').style.display = "block";
+    document.getElementById('errorSave').style.display = "none";    
+    document.getElementById('postSave').style.display = "none";
+    document.getElementById("saveModalSaved").style.display = "none";
+    document.getElementById('saveDisclaimer').style.display= "none";
+    document.getElementById('saveLoader').style.display = "block";
+}
+
+var addr = document.location.href;
+function displayError() {
+  document.getElementById("err_url").value = addr;
+  document.getElementById("err_form").style.display = "block";
+  document.getElementById("err_email").focus();
+  hideSent();
+}
+function hideError() {
+  document.getElementById("err_form").style.display = "none";
+}
+function hideSent() {
+  document.getElementById("err_sent").style.display = "none";
+}
+function sendErr() {
+  var xmlhttp;
+  var err_url = document.getElementById("err_url").value;
+  var err_email = document.getElementById("err_email").value;
+  var err_desc = document.getElementById("err_desc").value;
+  if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+  } else {// code for IE6, IE5
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.open("POST", "/err_sup.asp", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("err_url=" + err_url + "&err_email=" + err_email + "&err_desc=" + escape(err_desc));
+  document.getElementById("err_desc").value = "";
+  hideError();
+  document.getElementById("err_sent").style.display = "block";
+}
+function openMenu() {
+    var x = document.getElementById("navbarDropMenu");
+    var y = document.getElementById("menuOverlay");
+    var z = document.getElementById("menuButton");
+    if (z.className.indexOf("w3-text-gray") == -1) {
+        z.className += " w3-text-gray";
+    } else { 
+        z.className = z.className.replace(" w3-text-gray", "");
+    }
+    if (z.className.indexOf("w3-gray") == -1) {
+        z.className += " w3-gray";
+    } else { 
+        z.className = z.className.replace(" w3-gray", "");
+    }
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+    if (y.className.indexOf("w3-show") == -1) {
+        y.className += " w3-show";
+    } else { 
+        y.className = y.className.replace(" w3-show", "");
+    }
+
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == document.getElementById("saveModal")) {
+        hideAndResetModal();
+    }
+    if (event.target == document.getElementById("driveSaveModal")) {
+        resetDriveSaveModal();
+    }
+    if (event.target == document.getElementById("driveLoadModal")) {
+        resetDriveLoadModal();
+    }
+    if (event.target == document.getElementById("menuOverlay")) {
+        openMenu();
+    }
+    
+}
+
+</script>
+
+<script src="./Tryit Editor v3.5_files/client.js" gapi_processed="true"></script>
+
+
+
+<div id="shader" style="display: none;"><div id="kaspersky_popup"><a id="yeslink" wotsearchprocessed="true"><div class="leftside"></div><div class="middleside">Ignore alert</div><div class="rightside"></div></a><a id="nolink" wotsearchprocessed="true"><div class="leftside"></div><div class="middleside">Go Back</div><div class="rightside"></div></a><div id="popuptitle"></div><div id="popupmessage"></div></div></div><iframe name="oauth2relay593502942" id="oauth2relay593502942" src="./Tryit Editor v3.5_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe src="./Tryit Editor v3.5_files/auth.html" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

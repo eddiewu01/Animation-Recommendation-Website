@@ -24,8 +24,11 @@ app.controller('myController', function($scope, $http) {
         $scope.Top10 = function() {
 
         var request1 = $http.get('/Top10');
+        // $scope.loading = true;
+        // $scope.posts = "Posts".query(function ()  {
+        //     $scope.loading = false;
+        // });
         request1.success(function(data) {
-            
             $scope.data = data;
         });
         request1.error(function(data){

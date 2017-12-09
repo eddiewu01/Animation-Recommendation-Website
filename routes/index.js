@@ -72,21 +72,26 @@ router.get('/Top10', function(req,res) {
   // var query = 'SELECT * from Person Limit 10';
   //var query = 'SELECT * from animation limit 10';
 
+  /*
   // Q3 from milestone 3
   var query = "SELECT DISTINCT name " 
   query += "FROM animation a, animation_genre ag, genre g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " ORDER BY a.score DESC LIMIT 10"
-  
+  */
 
-  //var query = "SELECT * FROM user LIMIT 10"
+  //var query = "SELECT * FROM animation LIMIT 5";
+
+  var query = "SELECT * FROM user LIMIT 10"
   console.log(query);
   // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
+    	//return callback(err, null);
     else {
         res.json(rows);
+        //return callback(null, rows);
     }  
     });
 });
