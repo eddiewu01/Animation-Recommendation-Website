@@ -41,12 +41,12 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'index.html'));
 });
 
-router.get('/reference', function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../', 'views', 'reference.html'));
+router.get('/genre', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'genre.html'));
 });
 
-router.get('/insert', function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../', 'views', 'insert.html'));
+router.get('/animation', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'animation.html'));
 });
 
 router.get('/showall', function(req,res) {
@@ -135,7 +135,7 @@ router.get('/Empty', function(req,res) {
 router.get('/genreshowall', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT g.genre, AVG(a.score)';
+  var query = 'SELECT g.genre, AVG(a.score) AS score ';
   query += "FROM animation a, animation_genre ag, genre g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " GROUP BY g.genre"
