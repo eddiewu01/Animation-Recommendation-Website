@@ -118,7 +118,23 @@ app.controller('genreController', function($scope, $http) {
 
 });
 
+app.controller('character_controller', function($scope, $http){
 
+        $scope.mongotest = function() {
+
+        var request1 = $http.get('/mongotest');
+        request1.success(function(data) {
+
+            $scope.data = data;
+        });
+        request1.error(function(data){
+            console.log('err');
+        });
+        }; 
+
+        
+
+})
 
 
 // app.controller('insertController', function($scope, $http) {

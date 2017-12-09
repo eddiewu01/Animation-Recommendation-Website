@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+// var mongojs = require('mongodb');
+// var db = mongojs('mongodb://animi:database@ds133796.mlab.com:33796/animation');
 
 // Connect string to MySQL
 
@@ -25,17 +27,7 @@ var connection = mysql.createConnection({
 
 
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
-MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
-    if (err) {
-        throw err;
-    } else {
-        console.log("successfully connected to the database");
-    }
-    db.close();
-});
-
 /* GET home page. */
-
 
 router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'index.html'));
@@ -47,6 +39,10 @@ router.get('/genre', function(req, res, next) {
 
 router.get('/animation', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'animation.html'));
+});
+
+router.get('/character', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'character.html'));
 });
 
 router.get('/naruto', function(req, res, next) {
@@ -82,11 +78,12 @@ router.get('/Top10', function(req,res) {
 
   
   // Q3 from milestone 3
-  var query = "SELECT DISTINCT name " 
-  query += "FROM animation a, animation_genre ag, genre g"
-  query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
-  query += " ORDER BY a.score DESC LIMIT 10"
+   var query = "SELECT name "; 
+    query += "FROM animation a, animation_genre ag, genre g"
+    query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label";
+    query += " ORDER BY a.score DESC LIMIT 10"
   
+
 
   //var query = "SELECT * FROM animation LIMIT 5";
 
@@ -137,6 +134,32 @@ router.get('/Empty', function(req,res) {
     }  
     });
 });
+
+
+router.get('/mongotest', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        console.log("successfully connected to the database");
+        db.collection("character").find().toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+
+
+});
+
 
 
 
