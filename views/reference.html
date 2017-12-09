@@ -8,43 +8,89 @@
         <!-- Custom styles for this template-->
         <link href="../css/navbar-static-top.css" rel="stylesheet">
     </head>
+
+
     <body data-spy="scroll" data-target=".scrollspy">
-        <header></header>
-        <!-- Static navbar-->
-        <nav role="navigation" class="navbar navbar-static-top navbar-default">
-            <div class="container">
-                <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">HW2 - CIS550</a></div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <li class="active"><a href="/">Your Work</a></li>
-                    <li><a href="/insert">Insert a new record</a></li>
-                    <li><a href="/reference">Reference</a></li>
-                </div>
-            </div>
-        </nav>
-         <div class="container">
-            <!-- Main component for a primary marketing message or call to action-->
-            <div class="jumbotron">
-         <div ng-controller="myController">
-        <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please enter a person login:
-            <input name="email" ng-model="email" value="">
-            <button type="button" ng-click="Submit()" class="button">Submit</button>
-        </p>
-        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-            <tr> 
-            <td> Login </td>
-            <td> Name </td>
-            <td> Sex </td>
-            <td> RelationshipStatus </td>
-            <td> Birthyear </td>
-            <tr ng-repeat="x in data"> 
-            <td> {{x.anmie_id}} </td>
-            <td> {{x.name}} </td>
-            <td> {{x.type}} </td>
-            <td> {{x.episodes}} </td>
-            <td> {{x.score}} </td>
-            <td> {{x.members}} </td>
-            </tr>
-        </table>
-        </div>
+
+
+        <div class="jumbotron text-center">
+  <h1>Recommend the Popular Genres!</h1>
+  <p><a href="/">Back to Main Page</a></p>
+</div>
+  
+<div id="original" class="container">
+  <div class="row">
+        <div class="jumbotron">
+
+     <div ng-controller="genreController">
+    <p>
+
+<!--     <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please enter a person login:
+        <input name="email" ng-model="email" value=""> -->
+
+
+        <button type="button"  ng-click="Submit()" class = "button">Show All</button>
+
+        <button type="button" ng-click="Top5()" class="button">Top5</button>
+
+        <button type="button" ng-click="Top20()" class="button">Top20</button>
+
+        <button type="button" ng_click="Empty()" class="button"> Empty the table! </button>
+
+    </p>
+
+<!--     <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+        <tr> 
+        <td> Anime_id </td>
+        <td>  Name </td>
+        <td> Type </td>
+        <td> Episodes </td>
+        <td> Score </td>
+        <td> members </td>
+        <tr ng-repeat="x in data">
+        <td> {{x.anmie_id}} </td>
+        <td> {{x.name}} </td>
+        <td> {{x.type}} </td>
+        <td> {{x.episodes}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.members}} </td>
+        </tr>
+    </table> -->
+
+    <head>
+    <style>
+    table, th, td {
+        border: 2px solid black;
+    }
+    </style>
+    </head>
+
+    <table style="width:100%">
+        <tr> 
+        <!-- <th> Anime_id </th> -->
+        <th> genre </th>
+        <th> score </th>
+<!--         <th> Episodes </th>
+        <th> Score </th>
+        <th> members </th> -->
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.genre}} </td>
+        <td> {{x.score}} </td>
+<!--         <td> {{x.episodes}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.members}} </td> -->
+        </tr>
+    </table>
+
+
+    </div>
+    <!-- </div> -->
+        
+
+  </div>
+</div>
+
+
     </body>
 </html>
