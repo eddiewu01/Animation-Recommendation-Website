@@ -58,6 +58,18 @@ app.controller('myController', function($scope, $http) {
         });
         }; 
 
+        $scope.Search = function() {
+        var request = $http.get('/data/'+$scope.animation);
+        console.log("test/........")
+        request.success(function(data) {
+            $scope.data = data;
+        });
+        request.error(function(data){
+            console.log('err');
+        });
+        }; 
+
+
 });
 
 

@@ -135,6 +135,22 @@ router.get('/Empty', function(req,res) {
     });
 });
 
+router.get('/data/:animation', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  var query = 'SELECT * from animation';
+  var animation = req.params.animation;
+  // console.log(email)
+  if (animation != 'undefined') query = query + ' where name ="' + animation + '"' ;
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+        res.json(rows);
+    }  
+    });
+});
+
 
 router.get('/mongotest', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
