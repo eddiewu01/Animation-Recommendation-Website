@@ -9,7 +9,7 @@ app.controller('myController', function($scope, $http) {
         $scope.Submit = function() {
         
         var request = $http.get('/showall');
-        
+        console.log("=========test controler=========")
         request.success(function(data) {
             
             $scope.data = data;
