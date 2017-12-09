@@ -49,6 +49,14 @@ router.get('/animation', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'animation.html'));
 });
 
+router.get('/naruto', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'naruto.html'));
+});
+
+router.get('/onepiece', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'onepiece.html'));
+});
+
 router.get('/showall', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
@@ -72,17 +80,17 @@ router.get('/Top10', function(req,res) {
   // var query = 'SELECT * from Person Limit 10';
   //var query = 'SELECT * from animation limit 10';
 
-  /*
+  
   // Q3 from milestone 3
   var query = "SELECT DISTINCT name " 
   query += "FROM animation a, animation_genre ag, genre g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " ORDER BY a.score DESC LIMIT 10"
-  */
+  
 
   //var query = "SELECT * FROM animation LIMIT 5";
 
-  var query = "SELECT * FROM user LIMIT 10"
+  // var query = "SELECT * FROM user LIMIT 10"
   console.log(query);
   console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
@@ -158,7 +166,7 @@ router.get('/genreshowall', function(req,res) {
 router.get('/genreTop5', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT g.genre, AVG(a.score)';
+  var query = 'SELECT g.genre, AVG(a.score) AS score ';
   query += "FROM animation a, animation_genre ag, genre g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " GROUP BY g.genre"
@@ -181,7 +189,7 @@ router.get('/genreTop5', function(req,res) {
 router.get('/genreTop20', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT g.genre, AVG(a.score)';
+  var query = 'SELECT g.genre, AVG(a.score) AS score ';
   query += "FROM animation a, animation_genre ag, genre g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " GROUP BY g.genre"
