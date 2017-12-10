@@ -152,7 +152,7 @@ router.get('/data/:animation', function(req,res) {
 });
 
 
-router.get('/mongotest', function(req,res) {
+router.get('/allchars', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
   // var query = 'db.character.find()';
@@ -164,7 +164,8 @@ router.get('/mongotest', function(req,res) {
         throw err;
     } else {
         console.log("successfully connected to the database");
-        db.collection("character").find().toArray(function(err1,result){
+        query = {score:-1}
+        db.collection("character").find().sort(query).limit(10).toArray(function(err1,result){
           if(err1) throw err1;
           // console.log(result); 
           res.json(result);
@@ -173,8 +174,140 @@ router.get('/mongotest', function(req,res) {
     db.close();
 });
 
+});
+
+
+router.get('/actionchars', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query1 = {genre: {$in: ["Action"]}};
+        var query2 = {score: -1}
+        db.collection("character").find(query1).sort(query2).limit(10).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
 
 });
+
+
+router.get('/advchars', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query1 = {genre: {$in: ["Adventure"]}};
+        var query2 = {score: -1}
+        db.collection("character").find(query1).sort(query2).limit(10).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+
+});
+
+
+router.get('/dramachars', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query1 = {genre: {$in: ["Drama"]}};
+        var query2 = {score: -1}
+        db.collection("character").find(query1).sort(query2).limit(10).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+
+});
+
+
+router.get('/romancechars', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query1 = {genre: {$in: ["Romance"]}};
+        var query2 = {score: -1}
+        db.collection("character").find(query1).sort(query2).limit(10).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+
+});
+
+router.get('/comedychars', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query1 = {genre: {$in: ["Comedy"]}};
+        var query2 = {score: -1}
+        db.collection("character").find(query1).sort(query2).limit(10).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+
+});
+
+
+
+
 
 
 
@@ -250,14 +383,14 @@ router.get('/genreTop20', function(req,res) {
 
 
 
-router.get('/insert/:values', function(req,res) {
- var value = req.params.values.split('&');
-    //console.log('INSERT INTO Person(login,name,sex,relationshipStatus,birthyear) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'","'+value[4]+'")');
-    connection.query('INSERT INTO Person(login,name,sex,relationshipStatus,birthyear) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'","'+value[4]+'")' ,function (err, rows, fields) {
-        if (err) throw err;
+// router.get('/insert/:values', function(req,res) {
+//  var value = req.params.values.split('&');
+//     //console.log('INSERT INTO Person(login,name,sex,relationshipStatus,birthyear) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'","'+value[4]+'")');
+//     connection.query('INSERT INTO Person(login,name,sex,relationshipStatus,birthyear) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'","'+value[4]+'")' ,function (err, rows, fields) {
+//         if (err) throw err;
 
-    });
-});
+//     });
+// });
 
 
 module.exports = router;

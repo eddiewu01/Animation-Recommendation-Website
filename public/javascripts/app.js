@@ -132,9 +132,9 @@ app.controller('genreController', function($scope, $http) {
 
 app.controller('character_controller', function($scope, $http){
 
-        $scope.mongotest = function() {
+        $scope.allcharacters = function() {
 
-        var request1 = $http.get('/mongotest');
+        var request1 = $http.get('/allchars');
         request1.success(function(data) {
 
             $scope.data = data;
@@ -142,11 +142,93 @@ app.controller('character_controller', function($scope, $http){
         request1.error(function(data){
             console.log('err');
         });
-        }; 
+        };
 
-        
+        $scope.action_characters = function(){
 
-})
+            var request1 = $http.get('/actionchars');
+            request1.success(function(data) {
+
+                $scope.data = data;
+            });
+            request1.error(function(data){
+                console.log('err');
+            });
+
+
+
+        };
+
+        $scope.adventure_characters = function(){
+
+            var request1 = $http.get('/advchars');
+            request1.success(function(data) {
+
+                $scope.data = data;
+            });
+            request1.error(function(data){
+                console.log('err');
+            });
+
+
+
+        };
+
+        $scope.drama_characters = function(){
+
+            var request1 = $http.get('/dramachars');
+            request1.success(function(data) {
+
+                $scope.data = data;
+            });
+            request1.error(function(data){
+                console.log('err');
+            });
+
+
+
+        };
+
+        $scope.romance_characters = function(){
+
+            var request1 = $http.get('/romancechars');
+            request1.success(function(data) {
+
+                $scope.data = data;
+            });
+            request1.error(function(data){
+                console.log('err');
+            });
+
+
+
+        };
+
+        $scope.comedy_characters = function(){
+
+            var request1 = $http.get('/comedychars');
+            request1.success(function(data) {
+
+                $scope.data = data;
+
+            });
+            request1.error(function(data){
+                console.log('err');
+            });
+
+
+
+        };
+
+
+
+
+         
+
+});  
+
+
+
 
 
 // app.controller('insertController', function($scope, $http) {
