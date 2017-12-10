@@ -220,9 +220,28 @@ app.controller('character_controller', function($scope, $http){
 
         };
 
+        $scope.Search_char_Anime = function(){
+            var request = $http.get('/character/'+$scope.anime);
+            request.success(function(data){
+                $scope.data = data;
+            });
+            request.error(function(data){
+                console.log('err');
+            });
 
+        };
 
+        $scope.Search_char_GandS = function(){
+            console.log("get to the controller");
+            var request = $http.get('/character/another/'+$scope.genrescore);
+            request.success(function(data){
+                $scope.data = data;
+            });
+            request.error(function(data){
+                console.log('err');
+            });
 
+        };
          
 
 });  

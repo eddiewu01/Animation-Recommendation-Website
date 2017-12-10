@@ -78,9 +78,10 @@ router.get('/Top10', function(req,res) {
 
   
   // Q3 from milestone 3
-   var query = "SELECT name "; 
+   var query = "SELECT DISTINCT a.name "; 
     query += "FROM animation a, animation_genre ag, genre g"
-    query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label";
+    query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
+    //query += " GROUP BY g.genre"
     query += " ORDER BY a.score DESC LIMIT 10"
   
 
@@ -306,8 +307,61 @@ router.get('/comedychars', function(req,res) {
 });
 
 
+router.get('/character/:anime', function(req,res){
+  var anime = req.params.anime;
+  var query = {};
+  if(anime!='undefined'){
+    query = {animation: anime};
+  }
+
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, url:1};
+        db.collection("character").find(query, query2).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
 
 
+
+
+});
+
+
+router.get('/character/another/:genrescore', function(req,res){
+  var genrescore = req.params.genrescore.split(' ');
+  var query = {};
+  console.log(genrescore[0]);
+
+  if(genrescore!='undefined') query = {genre: {$in: [genrescore[0]]}, score: {$gte: parseFloat(genrescore[1])}};
+
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, url:1};
+        db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+
+
+
+});
 
 
 
@@ -338,11 +392,17 @@ router.get('/genreshowall', function(req,res) {
 router.get('/genreTop5', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
+
+
+  
   var query = 'SELECT g.genre, AVG(a.score) AS score ';
   query += "FROM animation a, animation_genre ag, genre g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " GROUP BY g.genre"
   query += " ORDER BY AVG(a.score) DESC LIMIT 5"
+  
+
+
   console.log(query)
   //var email = req.params.email;
   //if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
