@@ -1,61 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-    
-  .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
-  }
 
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none; 
-    }
-  }
-  
-  img {
-    max-width: 100%;
-    max-height: 100%;
+
+<html ng-app="angularjsNodejsTutorial">
+      <head>
+        <!-- <title>Please enter a person login</title> -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+        <script src="javascripts/app.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+         <!-- Custom styles for this template -->
+        <!-- <link href="../css/navbar-static-top.css" rel="stylesheet"> -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */ 
+        .navbar {
+          margin-bottom: 0;
+          border-radius: 0;
+        }
+        
+        /* Add a gray background color and some padding to the footer */
+        footer {
+          background-color: #f2f2f2;
+          padding: 25px;
+        }
+        
+      .carousel-inner img {
+          width: 100%; /* Set width to 100% */
+          margin: auto;
+          min-height:200px;
+      }
+
+      /* Hide the carousel text when the screen is less than 600 pixels wide */
+      @media (max-width: 600px) {
+        .carousel-caption {
+          display: none; 
+        }
+      }
+      </style>
+
+      <style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
-.portrait {
-    height: 80px;
-    width: 30px;
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
 }
 
-.landscape {
-    height: 30px;
-    width: 80px;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.square {
-    height: 75px;
-    width: 75px;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
-  
-  </style>
-</head>
-<body>
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+
+
+
+
+    </head>
+
+
+
+    <body data-spy="scroll" data-target=".scrollspy">
+      
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -90,51 +127,432 @@
 
 <center><iframe width="800" height="500" src="https://www.youtube.com/embed/mksl3tYdyK4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></center>
  
-  
+
 <div class="container text-center">    
   <h3>Naruto</h3><br>
   <p>Naruto (ナルト) is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, an adolescent ninja who searches for recognition and dreams of becoming the Hokage, the leader of his village. The story is in two parts, the first set in Naruto's pre-teen years, and the second in his teens. The series is based on two one-shot manga by Kishimoto: Karakuri (1995), which earned Kishimoto an honorable mention in Shueisha's monthly Hop Step Award the following year, and Naruto (1997).</p>
   
   <h3>Character Gallery</h3><br>
-  
 
+
+<!--         <div class="jumbotron text-center">
+  <h1>Recommend the Popular Animations!</h1>
+  <p><a href="/">Back to Main Page</a></p>
+</div> -->
   
+<!-- <div id="original" class="container"> ORIGINAL CODES THAT PRODUCE TABLE ON ONE PAGE
   <div class="row">
-    <div class="col-sm-4">
-      <img src="https://preview.ibb.co/dkj6cw/naruto_5.png" class="img-responsive" style="width:60%" alt="Image">
-      
-    </div>
+        <div class="jumbotron">
+     <div ng-controller="myController">
+    <p>
 
+     <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please enter a person login:
+        <input name="email" ng-model="email" value=""> 
+
+        <button type="button"  ng-click="Submit()" class = "button">Show All</button>
+
+        <button type="button" ng-click="Top10()" class="button">Top10</button>
+
+        <button type="button" ng-click="Top50()" class="button">Top50</button>
+
+        <button type="button" ng_click="Empty()" class="button"> Empty the table! </button>
+
+    </p> -->
+    
+
+
+    <div class="container">
+  <h2>Get Animation Characters!</h2>
+  <div class="row">
+        <div class="jumbotron">
+      <div ng-controller="character_controller"> 
+        <p> 
+
+
+
+
+    <div class="col-sm-4">
+      <img src="https://preview.ibb.co/dkj6cw/naruto_5.png" class="img-responsive" style="width:60%" alt="Image" ng-click = "naruto()" data-toggle="modal" data-target="#myModal10">
+    </div>
 
     <div class="col-sm-4"> 
-      <img src="https://image.ibb.co/g5ttPb/naruto_4.jpg" class="img-responsive" style="width:85%" alt="Image">
-        
+      <img src="https://image.ibb.co/g5ttPb/naruto_4.jpg" class="img-responsive" style="width:85%" alt="Image">        
     </div>
-
-
 
     <div class="col-sm-4"> 
       <img src="https://image.ibb.co/ecoA4b/naruto_3.jpgE" class="img-responsive" style="width:100%" alt="Image">
-         
-    </div>
+    </div> 
 
-    
+
+
+
+      <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Your Interested Character Information by his/her name:
+      <input name="charname" ng-model="charname" value="">
+      <button type="button" ng-click="Search_char_name()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal9">Search</button>
+  </p>
+
+  <!-- Trigger the modal with a button -->
+  <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Your Interested Character(s) by Anime:
+      <input name="anime" ng-model="anime" value="">
+      <button type="button" ng-click="Search_char_Anime()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal7">Search</button>
+  </p>
+
+  <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Your Interested Character(s) by Genre and Score:
+      <input name="genrescore" ng-model="genrescore" value="">
+      <button type="button" ng-click="Search_char_GandS()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal8">Search</button>
+  </p>
+
+
+  <button type="button" class="btn btn-info btn-lg" ng-click = "allcharacters()" data-toggle="modal" data-target="#myModal1">Overall Top 10</button>
+  <div class="container">
+  <p>Use the Dropdown menu to to choose most popular characters based on some common genres.</p>
+  <!-- <p>To open the dropdown menu, use a button or a link with a class of .dropdown-toggle and data-toggle="dropdown".</p>   -->                                        
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Genres
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#" role = "button" ng-click = "action_characters()" data-toggle = "modal" data-target = "#myModal2">Action</a></li>
+      <li><a href="#" role = "button" ng-click = "adventure_characters()" data-toggle = "modal" data-target = "#myModal3">Adventure</a></li>
+      <li><a href="#" role = "button" ng-click = "drama_characters()" data-toggle = "modal" data-target = "#myModal4">Drama</a></li>
+      <li><a href="#" role = "button" ng-click = "romance_characters()" data-toggle = "modal" data-target = "#myModal5">Romance</a></li>
+      <li><a href="#" role = "button" ng-click = "comedy_characters()" data-toggle = "modal" data-target = "#myModal6">Comedy</a></li>
+    </ul>
   </div>
-</div><br>
-
-
-<!--   <button type="button" class="btn btn-info btn-lg" ng-click = "Top50()" data-toggle="modal" data-target="#myModal3">Top50</button> -->
-
-
-<!--   <div class="modal fade" id="myModal3" role="dialog">
+</div>
+<!--   <button type="button" class="btn btn-info btn-lg" ng-click = "Top5()" data-toggle="modal" data-target="#myModal2">Top5</button>
+  <button type="button" class="btn btn-info btn-lg" ng-click = "Top20()" data-toggle="modal" data-target="#myModal3">Top20</button> -->
+  
+  <!-- Modal1 -->
+  </p>
+  <div class="modal fade" id="myModal1" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Most popular characters overall</h4>
         </div>
         <div class="modal-body">
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+        <tr> 
+        <th> ID </th>
+        <th> Name </th>
+        <th> Animation </th>
+        <th> Score </th>
+        <th> Genres </th>
+<!--         <th> Episodes </th>
+        <th> Score </th>
+        <th> members </th> -->
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.id}} </td>
+        <td> {{x.name}} </td>
+        <td> {{x.animation}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.genre}} </td>
+        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="myModal10" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Most popular characters overall</h4>
+        </div>
+        <div class="modal-body">
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+        <tr> 
+        <th> ID </th>
+        <th> Name </th>
+        <th> Animation </th>
+        <th> Score </th>
+        <th> Genres </th>
+<!--         <th> Episodes </th>
+        <th> Score </th>
+        <th> members </th> -->
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.id}} </td>
+        <td> {{x.name}} </td>
+        <td> {{x.animation}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.genre}} </td>
+        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal2 -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Top 10 Action Genre Characters </h4>
+        </div>
+        <div class="modal-body">
+            <!-- <div ng-if="loading">loading...</div> -->
+
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+        <tr> 
+        <th> ID </th>
+        <th> Name </th>
+        <th> Animation </th>
+        <th> Score </th>
+        <th> Genres </th>
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.id}} </td>
+        <td> {{x.name}} </td>
+        <td> {{x.animation}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.genre}} </td>
+        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Top 10 Adventure Genre Characters</h4>
+        </div>
+        <div class="modal-body">
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                <tr> 
+        <th> ID </th>
+        <th> Name </th>
+        <th> Animation </th>
+        <th> Score </th>
+        <th> Genres </th>
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.id}} </td>
+        <td> {{x.name}} </td>
+        <td> {{x.animation}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.genre}} </td>
+        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal4" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Top 10 Drama Genre Characters</h4>
+        </div>
+        <div class="modal-body">
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                <tr> 
+        <th> ID </th>
+        <th> Name </th>
+        <th> Animation </th>
+        <th> Score </th>
+        <th> Genres </th>
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.id}} </td>
+        <td> {{x.name}} </td>
+        <td> {{x.animation}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.genre}} </td>
+        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal5" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Top 10 Romance Genre Characters</h4>
+        </div>
+        <div class="modal-body">
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                <tr> 
+        <th> ID </th>
+        <th> Name </th>
+        <th> Animation </th>
+        <th> Score </th>
+        <th> Genres </th>
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.id}} </td>
+        <td> {{x.name}} </td>
+        <td> {{x.animation}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.genre}} </td>
+        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal6" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Top 10 Comedy Genre Characters</h4>
+        </div>
+        <div class="modal-body">
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                <tr> 
+        <th> ID </th>
+        <th> Name </th>
+        <th> Animation </th>
+        <th> Score </th>
+        <th> Genres </th>
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.id}} </td>
+        <td> {{x.name}} </td>
+        <td> {{x.animation}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.genre}} </td>
+        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="myModal7" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Image of the main character of this animation</h4>
+        </div>
+        <div class="modal-body">
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                <tr> 
+        <th> Name </th>
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.name}} </td>
+        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="myModal8" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Names and images of 5 main characters with selected genre and minimum score (rating)</h4>
+        </div>
+        <div class="modal-body">
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                <tr> 
+        <th> Name </th>
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.name}} </td>
+        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal9" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Information of your selected character</h4>
+        </div>
+        <div class="modal-body">
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                <tr> 
+        <th> Name </th>
+        <th> Animation </th>
+        <th> Score </th>
+        <th> Genres </th>
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.name}} </td>
+        <td> {{x.animation}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.genre}} </td>
+        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+    <!-- <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
         <td> Anime_id </td>
         <td>  Name </td>
@@ -150,16 +568,16 @@
         <td> {{x.score}} </td>
         <td> {{x.members}} </td>
         </tr>
-    </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
+    </table> -->
     </div>
-  </div> -->
+    
+        
+
+  </div>
+</div>
+
+    </body> 
+ 
 
 
-
-</body>
 </html>

@@ -171,6 +171,25 @@ app.controller('character_controller', function($scope, $http){
         });
         };
 
+
+
+        $scope.naruto = function() {
+
+        var request11 = $http.get('/naruto1');
+        console.log("naruto app js test")
+        request11.success(function(data) {
+
+            $scope.data = data;
+        });
+        request11.error(function(data){
+            console.log('err');
+        });
+        };
+
+
+
+
+
         $scope.action_characters = function(){
 
             var request1 = $http.get('/actionchars');
@@ -283,11 +302,25 @@ app.controller('character_controller', function($scope, $http){
         };
 
 
-         
+
 
 });  
 
 
+
+// app.controller('narutoController', function($scope, $http) {
+//      $scope.naruto = function() {
+//         var request = $http.get('/naruto');
+//         console.log("========naruto test=========");
+//         request.success(function(data) {
+//             $scope.message = "Insertion successful!";
+//         });
+//         request.error(function(data){
+//             console.log('err');
+//         });
+//     };
+
+// });
 
 
 
