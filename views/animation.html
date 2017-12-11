@@ -160,6 +160,23 @@
   </p>
 
 
+
+<!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> -->
+  <p> Enter your animation review:
+  </p>
+      Animation: <input type="text" name="name" ng-model="name" value=""/></br>
+      Score: <input type="text" name="score" ng-model="score" value=""/></br>
+
+  <button type="button" ng-click="Insert()" class="btn btn-info btn-lg">Insert</button></br>
+  <label>{{message}}</label>
+
+  <button type="button" class="btn btn-info btn-lg" ng-click = "showreview()" data-toggle="modal" data-target="#myModal5">Show Recent User Reviews</button>
+
+
+
+  <!-- </div>  --> 
+
+
   <!-- Modal1 -->
   </p>
   <div class="modal fade" id="myModal1" role="dialog">
@@ -300,9 +317,40 @@
     </div>
   </div>
 
+  <!-- Modal5 -->
+  <div class="modal fade" id="myModal5" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Top 10 user id </h4>
+        </div>
+        <div class="modal-body">
+            <!-- <div ng-if="loading">loading...</div> -->
+
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+        <tr> 
+        <td>  name </td>
+        <td>  score </td>
+        <tr ng-repeat="x in data"> 
+        <td> {{x.name}} </td>
+        <td> {{x.score}} </td>
+
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
 </div>
-
+</div>
 
     <!-- <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 

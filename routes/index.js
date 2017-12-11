@@ -106,7 +106,7 @@ router.get('/Top10', function(req,res) {
 
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
-      //return callback(err, null);
+      // return callback(err, null);
     else {
         res.json(rows);
         //return callback(null, rows);
@@ -163,6 +163,40 @@ router.get('/data/:animation', function(req,res) {
     }  
     });
 });
+
+
+router.get('/insert/:values', function(req,res) {
+ console.log("test?????????")
+
+ var value = req.params.values.split('&');
+ var query = 'INSERT INTO NewUserReview(name,score) VALUES("'+value[0]+'","'+value[1]+'")'
+ console.log(query)
+
+    //console.log('INSERT INTO Person(login,name,sex,relationshipStatus,birthyear) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'","'+value[4]+'")');
+    connection.query(query ,function (err, rows, fields) {
+        
+        if (err) throw err;
+
+    });
+});
+
+
+router.get('/showreview', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  var query = 'SELECT name, score from NewUserReview';
+
+  console.log(query);
+  console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+        res.json(rows);
+    }  
+    });
+});
+
 
 
 router.get('/allchars', function(req,res) {
@@ -433,7 +467,7 @@ router.get('/genreTop5', function(req,res) {
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " GROUP BY g.genre"
   query += " ORDER BY AVG(a.score) DESC LIMIT 5"
-  
+
 
 
   console.log(query)

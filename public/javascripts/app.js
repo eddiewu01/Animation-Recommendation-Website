@@ -39,6 +39,7 @@ app.controller('myController', function($scope, $http) {
         request1.success(function(data) {
 
             $scope.data = data;
+            console.log(data)
         });
         request1.error(function(data){
             console.log('err');
@@ -69,6 +70,32 @@ app.controller('myController', function($scope, $http) {
         });
         }; 
 
+      $scope.Insert = function() {
+        var request = $http.get('/insert/'+$scope.name+'&'+$scope.score);
+
+        request.success(function(data) {
+            $scope.message = "Insertion successful!";
+            console.log("insert success");
+        });
+        request.error(function(data){
+            console.log('err');
+        });
+        };       
+
+
+        $scope.showreview = function() {
+
+        var request1 = $http.get('/showreview');
+        console.log("test.......");
+        request1.success(function(data) {
+
+            $scope.data = data;
+            console.log(data)
+        });
+        request1.error(function(data){
+            console.log('err');
+        });
+        }; 
 
 });
 
