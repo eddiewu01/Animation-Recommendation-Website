@@ -242,6 +242,20 @@ app.controller('character_controller', function($scope, $http){
             });
 
         };
+
+        $scope.Search_char_name = function(){
+            console.log("get to the controller");
+            var request = $http.get('/character/another_query/'+$scope.charname);
+            request.success(function(data){
+                $scope.data = data;
+            });
+            request.error(function(data){
+                console.log('err');
+            });
+
+        };
+
+
          
 
 });  

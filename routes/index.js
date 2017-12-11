@@ -371,10 +371,31 @@ router.get('/character/another/:genrescore', function(req,res){
     db.close();
 });
 
-
-
 });
 
+router.get('/character/another_query/:charname', function(req,res){
+  var charname = req.params.charname;
+  var query = {};
+
+  if(charname!='undefined') query = {name: charname};
+
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, animation:1, score:1, genre:1, url:1};
+        db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+
+});
 
 
 
