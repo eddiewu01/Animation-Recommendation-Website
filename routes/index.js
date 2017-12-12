@@ -228,7 +228,57 @@ router.get('/naruto1', function(req,res) {
   // console.log("inside person email");
   // var query = 'db.character.find()';
   // console.log(query);
-  var charname = "Gintoki Sakata";
+  var charname = "Naruto Uzumaki";
+  var query = {name: charname};
+  
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, animation:1, score:1, genre:1, url:1};
+        db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+});
+
+router.get('/sakura', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  var charname = "Sakura Haruno";
+  var query = {name: charname};
+  
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, animation:1, score:1, genre:1, url:1};
+        db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+});
+
+router.get('/sasuke', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  var charname = "Sasuke Uchiha";
   var query = {name: charname};
   
   console.log(query);
@@ -250,6 +300,160 @@ router.get('/naruto1', function(req,res) {
 
 
 
+
+
+router.get('/Goku', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  var charname = "Goku";
+  var query = {name: charname};
+  
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, animation:1, score:1, genre:1, url:1};
+        db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+});
+
+router.get('/Piccolo', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  var charname = "Piccolo";
+  var query = {name: charname};
+  
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, animation:1, score:1, genre:1, url:1};
+        db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+});
+
+router.get('/Krillin', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  var charname = "Krillin";
+  var query = {name: charname};
+  
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, animation:1, score:1, genre:1, url:1};
+        db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+});
+
+
+
+
+router.get('/Sabo', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  var charname = "Sabo";
+  var query = {name: charname};
+  
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, animation:1, score:1, genre:1, url:1};
+        db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+});
+
+router.get('/Roronoa', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  var charname = "Roronoa Zoro";
+  var query = {name: charname};
+  
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, animation:1, score:1, genre:1, url:1};
+        db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+});
+
+router.get('/Monkey', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  // var query = 'db.character.find()';
+  // console.log(query);
+  var charname = "Monkey D. Luffy";
+  var query = {name: charname};
+  
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        //console.log("successfully connected to the database");
+        var query2 = {_id:0, name:1, animation:1, score:1, genre:1, url:1};
+        db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
+});
 
 
 
@@ -490,8 +694,6 @@ router.get('/genreshowall', function(req,res) {
 router.get('/genreTop5', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-
-
   
   var query = 'SELECT g.genre, AVG(a.score) AS score ';
   query += "FROM animation a, animation_genre ag, genre g"
@@ -499,7 +701,7 @@ router.get('/genreTop5', function(req,res) {
   query += " GROUP BY g.genre"
   query += " ORDER BY AVG(a.score) DESC LIMIT 5"
 
-
+  console.log("test in index js")
 
   console.log(query)
   //var email = req.params.email;

@@ -119,11 +119,13 @@ app.controller('genreController', function($scope, $http) {
 
 
         $scope.Top5 = function() {
-
+        console.log("test genre top 5 app js")
         var request1 = $http.get('/genreTop5');
         request1.success(function(data) {
+
             
             $scope.data = data;
+            console.log(data)
         });
         request1.error(function(data){
             console.log('err');
@@ -176,6 +178,112 @@ app.controller('character_controller', function($scope, $http){
         $scope.naruto = function() {
 
         var request11 = $http.get('/naruto1');
+        console.log("naruto app js test")
+        request11.success(function(data) {
+
+            $scope.data = data;
+        });
+        request11.error(function(data){
+            console.log('err');
+        });
+        };
+
+        $scope.sakura = function() {
+
+        var request11 = $http.get('/sakura');
+        console.log("naruto app js test")
+        request11.success(function(data) {
+
+            $scope.data = data;
+        });
+        request11.error(function(data){
+            console.log('err');
+        });
+        };
+
+        $scope.sasuke = function() {
+
+        var request11 = $http.get('/sasuke');
+        console.log("naruto app js test")
+        request11.success(function(data) {
+
+            $scope.data = data;
+        });
+        request11.error(function(data){
+            console.log('err');
+        });
+        };
+
+
+        $scope.Goku = function() {
+
+        var request11 = $http.get('/Goku');
+        console.log("naruto app js test")
+        request11.success(function(data) {
+
+            $scope.data = data;
+        });
+        request11.error(function(data){
+            console.log('err');
+        });
+        };
+
+        $scope.Piccolo = function() {
+
+        var request11 = $http.get('/Piccolo');
+        console.log("naruto app js test")
+        request11.success(function(data) {
+
+            $scope.data = data;
+        });
+        request11.error(function(data){
+            console.log('err');
+        });
+        };
+
+        $scope.Krillin = function() {
+
+        var request11 = $http.get('/Krillin');
+        console.log("naruto app js test")
+        request11.success(function(data) {
+
+            $scope.data = data;
+        });
+        request11.error(function(data){
+            console.log('err');
+        });
+        };
+
+
+        $scope.Monkey = function() {
+
+        var request11 = $http.get('/Monkey');
+        console.log("naruto app js test")
+        request11.success(function(data) {
+
+            $scope.data = data;
+        });
+        request11.error(function(data){
+            console.log('err');
+        });
+        };
+
+        $scope.Roronoa = function() {
+
+        var request11 = $http.get('/Roronoa');
+        console.log("naruto app js test")
+        request11.success(function(data) {
+
+            $scope.data = data;
+        });
+        request11.error(function(data){
+            console.log('err');
+        });
+        };
+
+        $scope.Sabo = function() {
+
+        var request11 = $http.get('/Sabo');
         console.log("naruto app js test")
         request11.success(function(data) {
 

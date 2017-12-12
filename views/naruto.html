@@ -164,7 +164,7 @@
     <div class="container">
   <h2>Get Animation Characters!</h2>
   <div class="row">
-        <div class="jumbotron">
+        <!-- <div class="jumbotron"> -->
       <div ng-controller="character_controller"> 
         <p> 
 
@@ -176,89 +176,19 @@
     </div>
 
     <div class="col-sm-4"> 
-      <img src="https://image.ibb.co/g5ttPb/naruto_4.jpg" class="img-responsive" style="width:85%" alt="Image">        
+      <img src="https://image.ibb.co/g5ttPb/naruto_4.jpg" class="img-responsive" style="width:85%" alt="Image" ng-click = "sakura()" data-toggle="modal" data-target="#myModal10">        
     </div>
 
     <div class="col-sm-4"> 
-      <img src="https://image.ibb.co/ecoA4b/naruto_3.jpgE" class="img-responsive" style="width:100%" alt="Image">
+      <img src="https://image.ibb.co/ecoA4b/naruto_3.jpgE" class="img-responsive" style="width:100%" alt="Image" ng-click = "sasuke()" data-toggle="modal" data-target="#myModal10">
     </div> 
 
 
 
 
-      <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Your Interested Character Information by his/her name:
-      <input name="charname" ng-model="charname" value="">
-      <button type="button" ng-click="Search_char_name()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal9">Search</button>
-  </p>
-
-  <!-- Trigger the modal with a button -->
-  <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Your Interested Character(s) by Anime:
-      <input name="anime" ng-model="anime" value="">
-      <button type="button" ng-click="Search_char_Anime()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal7">Search</button>
-  </p>
-
-  <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Your Interested Character(s) by Genre and Score:
-      <input name="genrescore" ng-model="genrescore" value="">
-      <button type="button" ng-click="Search_char_GandS()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal8">Search</button>
-  </p>
-
-
-  <button type="button" class="btn btn-info btn-lg" ng-click = "allcharacters()" data-toggle="modal" data-target="#myModal1">Overall Top 10</button>
-  <div class="container">
-  <p>Use the Dropdown menu to to choose most popular characters based on some common genres.</p>
-  <!-- <p>To open the dropdown menu, use a button or a link with a class of .dropdown-toggle and data-toggle="dropdown".</p>   -->                                        
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Genres
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#" role = "button" ng-click = "action_characters()" data-toggle = "modal" data-target = "#myModal2">Action</a></li>
-      <li><a href="#" role = "button" ng-click = "adventure_characters()" data-toggle = "modal" data-target = "#myModal3">Adventure</a></li>
-      <li><a href="#" role = "button" ng-click = "drama_characters()" data-toggle = "modal" data-target = "#myModal4">Drama</a></li>
-      <li><a href="#" role = "button" ng-click = "romance_characters()" data-toggle = "modal" data-target = "#myModal5">Romance</a></li>
-      <li><a href="#" role = "button" ng-click = "comedy_characters()" data-toggle = "modal" data-target = "#myModal6">Comedy</a></li>
-    </ul>
-  </div>
-</div>
-<!--   <button type="button" class="btn btn-info btn-lg" ng-click = "Top5()" data-toggle="modal" data-target="#myModal2">Top5</button>
-  <button type="button" class="btn btn-info btn-lg" ng-click = "Top20()" data-toggle="modal" data-target="#myModal3">Top20</button> -->
+     
   
-  <!-- Modal1 -->
-  </p>
-  <div class="modal fade" id="myModal1" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Most popular characters overall</h4>
-        </div>
-        <div class="modal-body">
-          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-        <tr> 
-        <th> ID </th>
-        <th> Name </th>
-        <th> Animation </th>
-        <th> Score </th>
-        <th> Genres </th>
-<!--         <th> Episodes </th>
-        <th> Score </th>
-        <th> members </th> -->
-        <tr ng-repeat="x in data">
-        <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
-        <td> {{x.name}} </td>
-        <td> {{x.animation}} </td>
-        <td> {{x.score}} </td>
-        <td> {{x.genre}} </td>
-        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
-        </tr>
-    </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
 
 
@@ -299,276 +229,11 @@
   </div>
 
 
-  <!-- Modal2 -->
-  <div class="modal fade" id="myModal2" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Top 10 Action Genre Characters </h4>
-        </div>
-        <div class="modal-body">
-            <!-- <div ng-if="loading">loading...</div> -->
-
-          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-        <tr> 
-        <th> ID </th>
-        <th> Name </th>
-        <th> Animation </th>
-        <th> Score </th>
-        <th> Genres </th>
-        <tr ng-repeat="x in data">
-        <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
-        <td> {{x.name}} </td>
-        <td> {{x.animation}} </td>
-        <td> {{x.score}} </td>
-        <td> {{x.genre}} </td>
-        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
-        </tr>
-    </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="myModal3" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Top 10 Adventure Genre Characters</h4>
-        </div>
-        <div class="modal-body">
-          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-                <tr> 
-        <th> ID </th>
-        <th> Name </th>
-        <th> Animation </th>
-        <th> Score </th>
-        <th> Genres </th>
-        <tr ng-repeat="x in data">
-        <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
-        <td> {{x.name}} </td>
-        <td> {{x.animation}} </td>
-        <td> {{x.score}} </td>
-        <td> {{x.genre}} </td>
-        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
-        </tr>
-    </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="myModal4" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Top 10 Drama Genre Characters</h4>
-        </div>
-        <div class="modal-body">
-          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-                <tr> 
-        <th> ID </th>
-        <th> Name </th>
-        <th> Animation </th>
-        <th> Score </th>
-        <th> Genres </th>
-        <tr ng-repeat="x in data">
-        <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
-        <td> {{x.name}} </td>
-        <td> {{x.animation}} </td>
-        <td> {{x.score}} </td>
-        <td> {{x.genre}} </td>
-        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
-        </tr>
-    </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="myModal5" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Top 10 Romance Genre Characters</h4>
-        </div>
-        <div class="modal-body">
-          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-                <tr> 
-        <th> ID </th>
-        <th> Name </th>
-        <th> Animation </th>
-        <th> Score </th>
-        <th> Genres </th>
-        <tr ng-repeat="x in data">
-        <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
-        <td> {{x.name}} </td>
-        <td> {{x.animation}} </td>
-        <td> {{x.score}} </td>
-        <td> {{x.genre}} </td>
-        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
-        </tr>
-    </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="myModal6" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Top 10 Comedy Genre Characters</h4>
-        </div>
-        <div class="modal-body">
-          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-                <tr> 
-        <th> ID </th>
-        <th> Name </th>
-        <th> Animation </th>
-        <th> Score </th>
-        <th> Genres </th>
-        <tr ng-repeat="x in data">
-        <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
-        <td> {{x.name}} </td>
-        <td> {{x.animation}} </td>
-        <td> {{x.score}} </td>
-        <td> {{x.genre}} </td>
-        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
-        </tr>
-    </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <div class="modal fade" id="myModal7" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Image of the main character of this animation</h4>
-        </div>
-        <div class="modal-body">
-          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-                <tr> 
-        <th> Name </th>
-        <tr ng-repeat="x in data">
-        <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.name}} </td>
-        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
-        </tr>
-    </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <div class="modal fade" id="myModal8" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Names and images of 5 main characters with selected genre and minimum score (rating)</h4>
-        </div>
-        <div class="modal-body">
-          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-                <tr> 
-        <th> Name </th>
-        <tr ng-repeat="x in data">
-        <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.name}} </td>
-        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
-        </tr>
-    </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="myModal9" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Information of your selected character</h4>
-        </div>
-        <div class="modal-body">
-          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-                <tr> 
-        <th> Name </th>
-        <th> Animation </th>
-        <th> Score </th>
-        <th> Genres </th>
-        <tr ng-repeat="x in data">
-        <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.name}} </td>
-        <td> {{x.animation}} </td>
-        <td> {{x.score}} </td>
-        <td> {{x.genre}} </td>
-        <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
-        </tr>
-    </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
-</div>
+<!-- </div> -->
 
 
-    <!-- <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-        <tr> 
-        <td> Anime_id </td>
-        <td>  Name </td>
-        <td> Type </td>
-        <td> Episodes </td>
-        <td> Score </td>
-        <td> members </td>
-        <tr ng-repeat="x in data"> 
-        <td> {{x.anime_id}} </td>
-        <td> {{x.name}} </td>
-        <td> {{x.type}} </td>
-        <td> {{x.episodes}} </td>
-        <td> {{x.score}} </td>
-        <td> {{x.members}} </td>
-        </tr>
-    </table> -->
     </div>
     
         
