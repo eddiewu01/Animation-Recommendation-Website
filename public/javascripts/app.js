@@ -7,12 +7,13 @@ app.controller('myController', function($scope, $http) {
 
 
         $scope.Submit = function() {
-        
+             $scope.$emit('LOAD');
         var request = $http.get('/showall');
-        console.log("=========test controler=========")
+        // console.log("=========test controler=========")
         request.success(function(data) {
             
             $scope.data = data;
+            $scope.$emit('UNLOAD');
             // console.log('test controller');
         });
         request.error(function(data){
@@ -22,11 +23,12 @@ app.controller('myController', function($scope, $http) {
 
 
         $scope.Top10 = function() {
-
+            $scope.$emit('LOAD');
         var request1 = $http.get('/Top10');
         request1.success(function(data) {
             
             $scope.data = data;
+            $scope.$emit('UNLOAD');
         });
         request1.error(function(data){
             console.log('err');
@@ -34,12 +36,12 @@ app.controller('myController', function($scope, $http) {
     }; 
 
         $scope.Top50 = function() {
-
+            $scope.$emit('LOAD');
         var request1 = $http.get('/Top50');
         request1.success(function(data) {
 
             $scope.data = data;
-            console.log(data)
+            $scope.$emit('UNLOAD');
         });
         request1.error(function(data){
             console.log('err');
@@ -60,10 +62,12 @@ app.controller('myController', function($scope, $http) {
         }; 
 
         $scope.Search = function() {
+            $scope.$emit('LOAD');
         var request = $http.get('/data/'+$scope.animation);
-        console.log("test/........")
+        // console.log("test/........")
         request.success(function(data) {
             $scope.data = data;
+            $scope.$emit('UNLOAD');
         });
         request.error(function(data){
             console.log('err');
@@ -75,7 +79,7 @@ app.controller('myController', function($scope, $http) {
 
         request.success(function(data) {
             $scope.message = "Insertion successful!";
-            console.log("insert success");
+            // console.log("insert success");
         });
         request.error(function(data){
             console.log('err');
@@ -84,13 +88,13 @@ app.controller('myController', function($scope, $http) {
 
 
         $scope.showreview = function() {
-
+            $scope.$emit('LOAD');
         var request1 = $http.get('/showreview');
-        console.log("test.......");
+        // console.log("test.......");
         request1.success(function(data) {
 
             $scope.data = data;
-            console.log(data)
+            $scope.$emit('UNLOAD');
         });
         request1.error(function(data){
             console.log('err');
@@ -100,16 +104,22 @@ app.controller('myController', function($scope, $http) {
 });
 
 
+app.controller('loadController', function($scope, $http){
+    $scope.$on('LOAD',function(){$scope.loading=true});
+    $scope.$on('UNLOAD',function(){$scope.loading=false});
+});
+
+
 app.controller('genreController', function($scope, $http) {
-        $scope.message="";
 
         $scope.Submit = function() {
-    
+            $scope.$emit('LOAD');
         var request = $http.get('/genreshowall');
         
         request.success(function(data) {
             
             $scope.data = data;
+            $scope.$emit('UNLOAD');
             // console.log('test controller');
         });
         request.error(function(data){
@@ -119,13 +129,13 @@ app.controller('genreController', function($scope, $http) {
 
 
         $scope.Top5 = function() {
-        console.log("test genre top 5 app js")
+        $scope.$emit('LOAD');
         var request1 = $http.get('/genreTop5');
         request1.success(function(data) {
 
             
             $scope.data = data;
-            console.log(data)
+            $scope.$emit('UNLOAD');
         });
         request1.error(function(data){
             console.log('err');
@@ -133,11 +143,12 @@ app.controller('genreController', function($scope, $http) {
     }; 
 
         $scope.Top20 = function() {
-
+            $scope.$emit('LOAD');
         var request1 = $http.get('/genreTop20');
         request1.success(function(data) {
 
             $scope.data = data;
+            $scope.$emit('UNLOAD');
         });
         request1.error(function(data){
             console.log('err');
@@ -159,6 +170,9 @@ app.controller('genreController', function($scope, $http) {
 
 });
 
+
+
+// character page queries are not that complex, so loading not yet added for them!!! 
 app.controller('character_controller', function($scope, $http){
 
         $scope.allcharacters = function() {

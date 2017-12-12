@@ -47,7 +47,7 @@
 
 
 
-    <body data-spy="scroll" data-target=".scrollspy">
+    <body data-spy="scroll" data-target=".scrollspy" ng-controller="loadController">
 
 
 <nav class="navbar navbar-inverse">
@@ -161,6 +161,7 @@
           <h4 class="modal-title">All animation information</h4>
         </div>
         <div class="modal-body">
+          <div class="alert alert-info" ng-show="loading">Loading</div>
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
         <th> genre </th>
@@ -191,6 +192,7 @@
           <h4 class="modal-title">Top 10 user id </h4>
         </div>
         <div class="modal-body">
+          <div class="alert alert-info" ng-show="loading">Loading</div>
             <!-- <div ng-if="loading">loading...</div> -->
 
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
@@ -222,6 +224,7 @@
           <h4 class="modal-title">Modal Header</h4>
         </div>
         <div class="modal-body">
+          <div class="alert alert-info" ng-show="loading">Loading</div>
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
         <th> genre </th>
