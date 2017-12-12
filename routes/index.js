@@ -65,7 +65,7 @@ router.get('/showall', function(req,res) {
   //var email = req.params.email;
   //if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
   // console.log(query);
-  console.log('===============test controller==============');
+  // console.log('===============test controller==============');
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
@@ -90,8 +90,8 @@ router.get('/Top10', function(req,res) {
    //  query += " ORDER BY a.score DESC LIMIT 10"
   
 
-  var query = 'SELECT DISTINCT * ';
-  query += "FROM animation a, animation_genre ag, genre g"
+  var query = 'SELECT DISTINCT name ';
+  query += "FROM animation a, animation_genre ag, genre1 g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " ORDER BY a.score"
   // query += " GROUP BY g.genre"
@@ -102,7 +102,7 @@ router.get('/Top10', function(req,res) {
 
   // var query = "SELECT * FROM user LIMIT 10"
   console.log(query);
-  console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
@@ -119,8 +119,14 @@ router.get('/Top10', function(req,res) {
 router.get('/Top50', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT * from animation Limit 5';
+  // var query = 'SELECT * from animation Limit 5';
 
+  // Q8 from milestone 3
+  // var query = "SELECT d2.name FROM (SELECT a.name, AVG(d1.rating) as avg_rating FROM animation a, (SELECT ratecutb.anime_id AS anime_id, ratecutb.rating AS rating "
+  // query += "FROM premium_user JOIN ratecutb ON premium_user.user_id = ratecutb.user_id WHERE ratecutb.rating >= 0 ) d1 WHERE a.anime_id = d1.anime_id "
+  // query +=  "GROUP BY d1.amine_id) d2 ORDER BY d2.avg_rating DESC LIMIT 20"
+
+  var query = "SELECT ratecutb.anime_id AS anime_id, ratecutb.rating AS rating FROM premium_user JOIN ratecutb ON premium_user.user_id = ratecutb.user_id WHERE ratecutb.rating >= 0 LIMIT 20"
   console.log(query);
   // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
@@ -672,7 +678,7 @@ router.get('/genreshowall', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
   var query = 'SELECT g.genre, AVG(a.score) AS score ';
-  query += "FROM animation a, animation_genre ag, genre g"
+  query += "FROM animation a, animation_genre ag, genre1 g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " GROUP BY g.genre"
   query += " ORDER BY AVG(a.score) DESC"
@@ -696,7 +702,7 @@ router.get('/genreTop5', function(req,res) {
   // console.log("inside person email");
   
   var query = 'SELECT g.genre, AVG(a.score) AS score ';
-  query += "FROM animation a, animation_genre ag, genre g"
+  query += "FROM animation a, animation_genre ag, genre1 g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " GROUP BY g.genre"
   query += " ORDER BY AVG(a.score) DESC LIMIT 5"
@@ -728,7 +734,7 @@ router.get('/genreTop20', function(req,res) {
   // query += " ORDER BY AVG(a.score) DESC LIMIT 20"
 
   var query = 'SELECT g.genre, AVG(a.score) AS score ';
-  query += "FROM animation a, animation_genre ag, genre g"
+  query += "FROM animation a, animation_genre ag, genre1 g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " GROUP BY g.genre"
   query += " ORDER BY AVG(a.score) DESC LIMIT 5"
