@@ -172,7 +172,7 @@ router.get('/data/:animation', function(req,res) {
 
 
 router.get('/insert/:values', function(req,res) {
- console.log("test?????????")
+ // console.log("test?????????")
 
  var value = req.params.values.split('&');
  var query = 'INSERT INTO NewUserReview(name,score) VALUES("'+value[0]+'","'+value[1]+'")'
@@ -698,7 +698,7 @@ router.get('/genreshowall', function(req,res) {
   query += "FROM animation a, animation_genre ag, genre1 g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
   query += " GROUP BY g.genre"
-  query += " ORDER BY AVG(a.score) DESC"
+  query += " ORDER BY AVG(a.score) DESC LIMIT 20"
   console.log(query)
   //var email = req.params.email;
   //if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
@@ -741,7 +741,7 @@ router.get('/genreTop5', function(req,res) {
 
 
 
-router.get('/genreTop20', function(req,res) {
+router.get('/animation_per_genre', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
   // var query = 'SELECT g.genre, AVG(a.score) AS score ';
@@ -750,14 +750,10 @@ router.get('/genreTop20', function(req,res) {
   // query += " GROUP BY g.genre"
   // query += " ORDER BY AVG(a.score) DESC LIMIT 20"
 
-  var query = 'SELECT g.genre, AVG(a.score) AS score ';
-  query += "FROM animation a, animation_genre ag, genre1 g"
-  query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
-  query += " GROUP BY g.genre"
-  query += " ORDER BY AVG(a.score) DESC LIMIT 5"
-
-
-
+  var query = "select a1.name, temp.score, temp.genre from animation a1, animation_genre2 ag1, (select MAX(a.score) as score, ag.genre from animation a, animation_genre2 ag";
+  query += " where a.anime_id = ag.anime_id group by ag.genre) temp ";
+  query += "where a1.anime_id = ag1.anime_id and a1.score = temp.score and ag1.genre = temp.genre";
+  // var query = "select * from animation limit 5";
   console.log(query)
   //var email = req.params.email;
   //if (email != 'undefined') query = query + ' where login ="' + email + '"' ;

@@ -112,7 +112,7 @@
         <li><a href="/character">Character</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
       </ul>
     </div>
   </div>
@@ -210,10 +210,10 @@
   </p>
 
 
-  <button type="button" class="btn btn-info btn-lg" ng-click = "allcharacters()" data-toggle="modal" data-target="#myModal1">Overall Top 10</button>
+  <button type="button" class="btn btn-info btn-lg" ng-click = "allcharacters()" data-toggle="modal" data-target="#myModal1">Top 10 Chracters Overall</button>
   <button type="button" class="btn btn-info btn-lg" ng-click = "num_chars_per_anime()" data-toggle="modal" data-target="#myModal10">Number of Popular Characters by Anime</button>
   <div class="container">
-  <p>Use the Dropdown menu to to choose most popular characters based on some common genres.</p>
+  <p>Use the dropdown menu below to view popular characters of some common genres.</p>
   <!-- <p>To open the dropdown menu, use a button or a link with a class of .dropdown-toggle and data-toggle="dropdown".</p>   -->                                        
   <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Genres
@@ -237,22 +237,22 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Most popular characters overall</h4>
+          <h4 class="modal-title">Character Information</h4>
         </div>
         <div class="modal-body">
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
-        <th> ID </th>
+     <!--    <th> ID </th> -->
         <th> Name </th>
         <th> Animation </th>
-        <th> Score </th>
+        <th> Rating </th>
         <th> Genres </th>
 <!--         <th> Episodes </th>
         <th> Score </th>
         <th> members </th> -->
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
+    <!--     <td> {{x.id}} </td> -->
         <td> {{x.name}} </td>
         <td> {{x.animation}} </td>
         <td> {{x.score}} </td>
@@ -281,14 +281,14 @@
 
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
-        <th> ID </th>
+     <!--    <th> ID </th> -->
         <th> Name </th>
         <th> Animation </th>
-        <th> Score </th>
+        <th> Rating </th>
         <th> Genres </th>
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
+        <!-- <td> {{x.id}} </td> -->
         <td> {{x.name}} </td>
         <td> {{x.animation}} </td>
         <td> {{x.score}} </td>
@@ -314,14 +314,14 @@
         <div class="modal-body">
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
                 <tr> 
-        <th> ID </th>
+      <!--   <th> ID </th> -->
         <th> Name </th>
         <th> Animation </th>
-        <th> Score </th>
+        <th> Rating </th>
         <th> Genres </th>
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
+        <!-- <td> {{x.id}} </td> -->
         <td> {{x.name}} </td>
         <td> {{x.animation}} </td>
         <td> {{x.score}} </td>
@@ -347,14 +347,14 @@
         <div class="modal-body">
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
                 <tr> 
-        <th> ID </th>
+      <!--   <th> ID </th> -->
         <th> Name </th>
         <th> Animation </th>
-        <th> Score </th>
+        <th> Rating </th>
         <th> Genres </th>
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
+   <!--      <td> {{x.id}} </td> -->
         <td> {{x.name}} </td>
         <td> {{x.animation}} </td>
         <td> {{x.score}} </td>
@@ -380,14 +380,14 @@
         <div class="modal-body">
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
                 <tr> 
-        <th> ID </th>
+       <!--  <th> ID </th> -->
         <th> Name </th>
         <th> Animation </th>
-        <th> Score </th>
+        <th> Rating </th>
         <th> Genres </th>
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
+<!--         <td> {{x.id}} </td> -->
         <td> {{x.name}} </td>
         <td> {{x.animation}} </td>
         <td> {{x.score}} </td>
@@ -413,14 +413,14 @@
         <div class="modal-body">
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
                 <tr> 
-        <th> ID </th>
+    <!--     <th> ID </th> -->
         <th> Name </th>
         <th> Animation </th>
-        <th> Score </th>
+        <th> Rating </th>
         <th> Genres </th>
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
-        <td> {{x.id}} </td>
+     <!--    <td> {{x.id}} </td> -->
         <td> {{x.name}} </td>
         <td> {{x.animation}} </td>
         <td> {{x.score}} </td>
@@ -441,15 +441,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Image of the main character of this animation</h4>
+          <h4 class="modal-title">Character Information</h4>
         </div>
         <div class="modal-body">
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
                 <tr> 
         <th> Name </th>
+        <th> Rating </th>
+        <th> Genres </th>
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
         <td> {{x.name}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.genre}} </td>
         <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
         </tr>
     </table>
@@ -466,15 +470,18 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Names and images of 5 main characters with selected genre and minimum score (rating)</h4>
+          <h4 class="modal-title">Character Information</h4>
         </div>
         <div class="modal-body">
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
                 <tr> 
         <th> Name </th>
+        <th> Animation </th>
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
         <td> {{x.name}} </td>
+         <td> {{x.animation}} </td>
+
         <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
         </tr>
     </table>
@@ -491,7 +498,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Information of your selected character</h4>
+          <h4 class="modal-title">Character Information</h4>
         </div>
         <div class="modal-body">
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
@@ -523,22 +530,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Information of your selected character</h4>
+          <h4 class="modal-title">Anime Popular Character Counts</h4>
         </div>
         <div class="modal-body">
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
                 <tr> 
-        <th> Name </th>
         <th> Animation </th>
-        <th> Score </th>
-        <th> Genres </th>
-        <th> Counts </th>
+        <th> Number of Popular Characters </th>
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
         <td> {{x._id}} </td>
-        <td> {{x.animation}} </td>
-        <td> {{x.score}} </td>
-        <td> {{x.genre}} </td>
+        <!-- <td> {{x.animation}} </td> -->
+        <!-- <td> {{x.score}} </td>
+        <td> {{x.genre}} </td> -->
         <td> {{x.counts}} </td>
         <!-- <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td> -->
         </tr>

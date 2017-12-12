@@ -68,7 +68,7 @@
         <li><a href="/character">Character</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+       <!--  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
       </ul>
     </div>
   </div>
@@ -149,7 +149,7 @@
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg" ng-click = "Submit()" data-toggle="modal" data-target="#myModal1">Genres by Average Animation Rating</button>
   <button type="button" class="btn btn-info btn-lg" ng-click = "Top5()" data-toggle="modal" data-target="#myModal2">Top 5 Genres</button>
-  <button type="button" class="btn btn-info btn-lg" ng-click = "Top20()" data-toggle="modal" data-target="#myModal3">Top Animation Within Each Genre</button>
+  <button type="button" class="btn btn-info btn-lg" ng-click = "Animationgenre()" data-toggle="modal" data-target="#myModal3">Top Animation Within Each Genre</button>
   
   <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Recommendations by Genre:
       <input name="genre" ng-model="genre" value="">
@@ -163,14 +163,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">All animation information</h4>
+          <h4 class="modal-title">Top-rated Genres</h4>
         </div>
         <div class="modal-body">
           <div class="alert alert-info" ng-show="loading">Loading data...</div>
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
-        <th> genre </th>
-        <th> score </th>
+        <th> Genre </th>
+        <th> Rating </th>
 <!--         <th> Episodes </th>
         <th> Score </th>
         <th> members </th> -->
@@ -194,7 +194,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Top 10 user id </h4>
+          <h4 class="modal-title">Top 5 Genres </h4>
         </div>
         <div class="modal-body">
           <div class="alert alert-info" ng-show="loading">Loading data...</div>
@@ -202,8 +202,8 @@
 
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
-        <th> genre </th>
-        <th> score </th>
+        <th> Genre </th>
+        <th> Rating </th>
 <!--         <th> Episodes </th>
         <th> Score </th>
         <th> members </th> -->
@@ -226,21 +226,24 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Animation Information</h4>
         </div>
         <div class="modal-body">
           <div class="alert alert-info" ng-show="loading">Loading data...</div>
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
         <th> Genre </th>
-        <th> Score </th>
-<!--         <th> Episodes </th>
+        <th> Animation </th>
+        <th> Rating </th>
+   <!--      <th> Episodes </th>
         <th> Score </th>
         <th> members </th> -->
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
         <td> {{x.genre}} </td>
+        <td> {{x.name}} </td>
         <td> {{x.score}} </td>
+
         </tr>
     </table>
         </div>
@@ -259,7 +262,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Recommended Animation</h4>
         </div>
         <div class="modal-body">
           <div class="alert alert-info" ng-show="loading">Loading data...</div>

@@ -159,9 +159,9 @@ app.controller('genreController', function($scope, $http) {
         });
     }; 
 
-        $scope.Top20 = function() {
+        $scope.Animationgenre = function() {
             $scope.$emit('LOAD');
-        var request1 = $http.get('/genreTop20');
+        var request1 = $http.get('/animation_per_genre');
         request1.success(function(data) {
 
             $scope.data = data;
