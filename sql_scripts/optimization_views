@@ -1,0 +1,15 @@
+# Script file to create views for computation heavy static queries
+
+##Top Scored Anime
+CREATE VIEW top_anime AS
+SELECT a1.name, temp.score, temp.genre
+FROM animation a1, animation_genre2 ag1,
+	(
+		SELECT MAX(a.score) as score, ag.genre
+		FROM animation a, animation_genre2 ag
+		WHERE a.anime_id = ag.anime_id
+		GROUP BY ag.genre
+	) temp
+WHERE a1.anime_id = ag1.anime_id AND a1.socre = temp.score AND ag1.genre = temp.genre
+ORDER BY temp.genre DESC
+LIMIT 50
