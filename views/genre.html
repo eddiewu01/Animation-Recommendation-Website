@@ -139,7 +139,7 @@
     </p> -->
 
     <div class="container">
-  <h2>Get Animation Genres!</h2>
+  <h2>Recommend Animation based on Genres!</h2>
   <div class="row">
         <div class="jumbotron">
      <div ng-controller="genreController">
@@ -147,11 +147,14 @@
 
 
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" ng-click = "Submit()" data-toggle="modal" data-target="#myModal1">Show All</button>
-  <button type="button" class="btn btn-info btn-lg" ng-click = "Top5()" data-toggle="modal" data-target="#myModal2">Top5</button>
+  <button type="button" class="btn btn-info btn-lg" ng-click = "Submit()" data-toggle="modal" data-target="#myModal1">Genres by Average Animation Rating</button>
+  <button type="button" class="btn btn-info btn-lg" ng-click = "Top5()" data-toggle="modal" data-target="#myModal2">Top 5 Genres</button>
   <button type="button" class="btn btn-info btn-lg" ng-click = "Top20()" data-toggle="modal" data-target="#myModal3">Top Animation Within Each Genre</button>
   
-  
+  <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Recommendations by Genre:
+      <input name="genre" ng-model="genre" value="">
+      <button type="button" ng-click="Search()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4">Search</button>
+  </p>
   
   <!-- Modal1 -->
   </p>
@@ -163,7 +166,7 @@
           <h4 class="modal-title">All animation information</h4>
         </div>
         <div class="modal-body">
-          <div class="alert alert-info" ng-show="loading">Loading</div>
+          <div class="alert alert-info" ng-show="loading">Loading data...</div>
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
         <th> genre </th>
@@ -194,7 +197,7 @@
           <h4 class="modal-title">Top 10 user id </h4>
         </div>
         <div class="modal-body">
-          <div class="alert alert-info" ng-show="loading">Loading</div>
+          <div class="alert alert-info" ng-show="loading">Loading data...</div>
             <!-- <div ng-if="loading">loading...</div> -->
 
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
@@ -226,11 +229,11 @@
           <h4 class="modal-title">Modal Header</h4>
         </div>
         <div class="modal-body">
-          <div class="alert alert-info" ng-show="loading">Loading</div>
+          <div class="alert alert-info" ng-show="loading">Loading data...</div>
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
-        <th> genre </th>
-        <th> score </th>
+        <th> Genre </th>
+        <th> Score </th>
 <!--         <th> Episodes </th>
         <th> Score </th>
         <th> members </th> -->
@@ -247,6 +250,42 @@
       </div>
     </div>
   </div>
+
+
+
+
+    <div class="modal fade" id="myModal4" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info" ng-show="loading">Loading data...</div>
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+        <tr> 
+        <th> Animation </th>
+<!--         <th> Genre </th> -->
+        <th> Rating </th>
+<!--         <th> Episodes </th>
+        <th> Score </th>
+        <th> members </th> -->
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.name}} </td>
+        <td> {{x.score}} </td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 </div>
 

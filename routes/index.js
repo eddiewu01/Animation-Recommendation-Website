@@ -61,7 +61,7 @@ router.get('/dragonball', function(req, res, next) {
 router.get('/showall', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT * from animation';
+  var query = 'SELECT * from animation LIMIT 20';
   //var email = req.params.email;
   //if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
   // console.log(query);
@@ -93,7 +93,7 @@ router.get('/Top10', function(req,res) {
   var query = 'SELECT DISTINCT name ';
   query += "FROM animation a, animation_genre ag, genre1 g"
   query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
-  query += " ORDER BY a.score"
+  query += " ORDER BY a.score LIMIT 10"
   // query += " GROUP BY g.genre"
   // query += " ORDER BY AVG(a.score) DESC"
 
@@ -116,7 +116,7 @@ router.get('/Top10', function(req,res) {
 
 
 
-router.get('/Top50', function(req,res) {
+router.get('/members', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
   // var query = 'SELECT * from animation Limit 5';
@@ -126,7 +126,8 @@ router.get('/Top50', function(req,res) {
   // query += "FROM premium_user JOIN ratecutb ON premium_user.user_id = ratecutb.user_id WHERE ratecutb.rating >= 0 ) d1 WHERE a.anime_id = d1.anime_id "
   // query +=  "GROUP BY d1.amine_id) d2 ORDER BY d2.avg_rating DESC LIMIT 20"
 
-  var query = "SELECT ratecutb.anime_id AS anime_id, ratecutb.rating AS rating FROM premium_user JOIN ratecutb ON premium_user.user_id = ratecutb.user_id WHERE ratecutb.rating >= 0 LIMIT 20"
+  // var query = "SELECT ratecutb.anime_id AS anime_id, ratecutb.rating AS rating FROM premium_user JOIN ratecutb ON premium_user.user_id = ratecutb.user_id WHERE ratecutb.rating >= 0 LIMIT 20"
+  var query = "SELECT * FROM animation ORDER BY members DESC LIMIT 10";
   console.log(query);
   // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
@@ -138,30 +139,29 @@ router.get('/Top50', function(req,res) {
     });
 });
 
-router.get('/Empty', function(req,res) {
-  // use console.log() as print() in case you want to debug, example below:
-  // console.log("inside person email");
-  var query = 'SELECT * FROM user WHERE 1 = 0';
+// router.get('/Empty', function(req,res) {
+//   // use console.log() as print() in case you want to debug, example below:
+//   // console.log("inside person email");
+//   var query = 'SELECT * FROM user WHERE 1 = 0';
 
-  console.log(query);
-  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+//   console.log(query);
+//   // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
-  connection.query(query, function(err, rows, fields) {
-    if (err) console.log(err);
-    else {
-        res.json(rows);
-    }  
-    });
-});
+//   connection.query(query, function(err, rows, fields) {
+//     if (err) console.log(err);
+//     else {
+//         res.json(rows);
+//     }  
+//     });
+// });
 
 router.get('/data/:animation', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT * from animation';
+  var query = 'SELECT * from animation LIMIT 10';
   var animation = req.params.animation;
   // console.log(email)
-  if (animation != 'undefined') query = query + ' where name ="' + animation + '"' ;
-  console.log(query);
+  if (animation != 'undefined') query = 'SELECT * from animation WHERE name ="' + animation + '" LIMIT 10';
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
@@ -669,7 +669,24 @@ router.get('/character/another_query/:charname', function(req,res){
     }
     db.close();
 });
+});
 
+router.get('/numcharsperanime', function(req,res){
+  var query = [{$group: {_id: "$animation", counts: {$sum:1}}}, {$project: {_id:1, counts:1}}, {$limit:10}];
+  console.log(query);
+  MongoClient.connect('mongodb://animi:database@ds133796.mlab.com:33796/animation', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        console.log("reading from mongodb database");
+        db.collection("character").aggregate(query).toArray(function(err1,result){
+          if(err1) throw err1;
+          // console.log(result); 
+          res.json(result);
+        });
+    }
+    db.close();
+});
 });
 
 
@@ -754,6 +771,22 @@ router.get('/genreTop20', function(req,res) {
     });
 });
 
+
+router.get('/data1/:genre', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  var query = 'SELECT DISTINCT name, score FROM animation a JOIN animation_genre2 ag2 ON a.anime_id = ag2.anime_id LIMIT 10';
+  var genre = req.params.genre;
+  // console.log(email)
+  if (genre != 'undefined') query = 'SELECT name, score FROM animation a JOIN animation_genre2 ag2 ON a.anime_id = ag2.anime_id WHERE ag2.genre = "' + genre +'" LIMIT 10';
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+        res.json(rows);
+    }  
+    });
+});
 
 
 // router.get('/allchars1', function(req,res) {

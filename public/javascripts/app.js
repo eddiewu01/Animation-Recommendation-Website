@@ -35,9 +35,9 @@ app.controller('myController', function($scope, $http) {
         });
     }; 
 
-        $scope.Top50 = function() {
+        $scope.members = function() {
             $scope.$emit('LOAD');
-        var request1 = $http.get('/Top50');
+        var request1 = $http.get('/members');
         request1.success(function(data) {
 
             $scope.data = data;
@@ -112,6 +112,23 @@ app.controller('loadController', function($scope, $http){
 
 app.controller('genreController', function($scope, $http) {
 
+
+
+        $scope.Search = function() {
+            console.log('enter');
+            $scope.$emit('LOAD');
+        var request = $http.get('/data1/'+$scope.genre);
+        // console.log("test/........")
+        request.success(function(data) {
+            $scope.data = data;
+            $scope.$emit('UNLOAD');
+        });
+        request.error(function(data){
+            console.log('err');
+        });
+        }; 
+
+
         $scope.Submit = function() {
             $scope.$emit('LOAD');
         var request = $http.get('/genreshowall');
@@ -185,6 +202,16 @@ app.controller('character_controller', function($scope, $http){
         request1.error(function(data){
             console.log('err');
         });
+        };
+
+        $scope.num_chars_per_anime = function(){
+            var request = $http.get('/numcharsperanime');
+            request.success(function(data){
+                $scope.data = data;
+            });
+            request.error(function(data){
+                console.log('err');
+            });
         };
 
 

@@ -211,6 +211,7 @@
 
 
   <button type="button" class="btn btn-info btn-lg" ng-click = "allcharacters()" data-toggle="modal" data-target="#myModal1">Overall Top 10</button>
+  <button type="button" class="btn btn-info btn-lg" ng-click = "num_chars_per_anime()" data-toggle="modal" data-target="#myModal10">Number of Popular Characters by Anime</button>
   <div class="container">
   <p>Use the Dropdown menu to to choose most popular characters based on some common genres.</p>
   <!-- <p>To open the dropdown menu, use a button or a link with a class of .dropdown-toggle and data-toggle="dropdown".</p>   -->                                        
@@ -506,6 +507,40 @@
         <td> {{x.score}} </td>
         <td> {{x.genre}} </td>
         <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="modal fade" id="myModal10" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Information of your selected character</h4>
+        </div>
+        <div class="modal-body">
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                <tr> 
+        <th> Name </th>
+        <th> Animation </th>
+        <th> Score </th>
+        <th> Genres </th>
+        <th> Counts </th>
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x._id}} </td>
+        <td> {{x.animation}} </td>
+        <td> {{x.score}} </td>
+        <td> {{x.genre}} </td>
+        <td> {{x.counts}} </td>
+        <!-- <td><img ng-src={{x.url[0]}} alt="pic" width="500" height="300"></td> -->
         </tr>
     </table>
         </div>
