@@ -2,6 +2,39 @@
 
 var app = angular.module('angularjsNodejsTutorial',[]);
 
+
+//for registering users
+app.controller('registerctrl', function($scope, $http) {
+      $scope.register = function() {
+        var request = $http.get('/register/'+$scope.email+'&'+$scope.username+'&'+$scope.password+'&'+$scope.favanime+'&'+$scope.favgenre);
+
+        request.success(function(data) {
+            $scope.message = "Insertion successful!";
+            // console.log("insert success");
+        });
+        request.error(function(data){
+            console.log('err');
+        });
+    };
+
+
+
+    $scope.showregister = function(){
+        $scope.$emit('LOAD');
+        var request1 = $http.get('/showregister');
+        // console.log("test.......");
+        request1.success(function(data) {
+
+            $scope.data = data;
+            $scope.$emit('UNLOAD');
+        });
+        request1.error(function(data){
+            console.log('err');
+        });
+    }   
+});    
+
+
 app.controller('myController', function($scope, $http) {
         $scope.message="";
 

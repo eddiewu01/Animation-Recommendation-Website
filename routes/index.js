@@ -45,6 +45,38 @@ router.get('/character', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'character.html'));
 });
 
+
+// for user registration and showing registered user info
+router.get('/register', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'register.html'));
+});
+
+router.get('/register/:inputs', function(req, res, next){
+  var value = req.params.inputs.split('&');
+ var query = 'INSERT INTO UserInformation(email, username, password, favanime, favgenre) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'","'+value[4]+'")';
+ connection.query(query ,function (err, rows, fields) {
+        
+        if (err) throw err;
+
+    });
+});
+
+router.get('/showregister', function(req,res,next){
+    var query = 'SELECT * from UserInformation';
+
+  // console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+        res.json(rows);
+    }  
+    });
+});
+
+// end of user registration part
+
 router.get('/naruto', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'naruto.html'));
 });
