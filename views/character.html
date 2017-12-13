@@ -41,6 +41,65 @@
           display: none; 
         }
       }
+
+      * {
+    box-sizing: border-box;
+}
+
+/*body {
+    background-color: #f1f1f1;
+    padding: 20px;
+    font-family: Arial;
+}*/
+
+/* Center website */
+.main {
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 50px;
+    word-break: break-all;
+}
+
+.row {
+    margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+    padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+    display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Content */
+.content {
+    background-color: white;
+    padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+
+
       </style>
 
       <style>
@@ -586,6 +645,175 @@
 
   </div>
 </div>
+
+
+<div class="main">
+
+
+<hr>
+
+<h2>Select Animations by Genre</h2>
+<input type="radio" onclick="filterSelection('all')" name="category" checked size=> <b>Show all</b>
+<input type="radio" onclick="filterSelection('Naruto')" name="category"> <b>Naruto</b>
+<input type="radio" onclick="filterSelection('DragonBall')" name="category"> <b>Dragon Ball</b>
+<input type="radio" onclick="filterSelection('people')" name="category"> <b>Drama</b>
+<input type="radio" onclick="filterSelection('YourName')" name="category"> <b>Your Name</b>
+<input type="radio" onclick="filterSelection('CaseClosed')" name="category"> <b>Case Closed</b>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column Naruto">
+    <div class="content">
+      <img src="https://media.giphy.com/media/dhizjCRH4Pe12/giphy.gif" class="img-rounded" alt="Mountains" style="width:100%" height=300>
+      <h4>Naruto Uzumaki</h4>
+    </div>
+  </div>
+  <div class="column Naruto">
+    <div class="content">
+    <img src="https://media.giphy.com/media/12pwt3qlbVVBfy/giphy.gif" alt="Lights" style="width:100%" height=300>
+      <h4>Sasuke Uchiha</h4>
+    </div>
+  </div>
+  <div class="column Naruto">
+    <div class="content">
+    <img src="https://media.giphy.com/media/70UEwcfieePhC/giphy.gif" alt="Nature" style="width:100%" height=300>
+      <h4>Sakura Haruno</h4>
+    </div>
+  </div>
+
+<div class="row">  
+  <div class="column DragonBall">
+    <div class="content">
+      <img src="https://media.giphy.com/media/6XsJEllKKX9MQ/giphy.gif" alt="Car" style="width:100%" height=300>
+      <h4>Goku</h4>
+    </div>
+  </div>
+  <div class="column DragonBall">
+    <div class="content">
+    <img src="https://media.giphy.com/media/FJH0aM8ESC436/giphy.gif" alt="Car" style="width:100%" height=300>
+      <h4>Piccolo</h4>
+    </div>
+  </div>
+  <div class="column DragonBall">
+    <div class="content">
+    <img src="https://media.giphy.com/media/Q56gcfTAteVZS/giphy.gif" alt="Car" style="width:100%" height=300>
+      <h4>Krillin</h4>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column people">
+    <div class="content">
+      <img src="https://media.giphy.com/media/q8ld8Sk7WWyY0/giphy.gif" alt="Car" style="width:100%" height=300>
+      <h4>Monkey D. Luffy</h4>
+
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="https://media.giphy.com/media/dYtNHNGCCSMX6/giphy.gif" alt="Car" style="width:100%" height=300>
+      <h4>Roronoa Zoro</h4>
+
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="https://media.giphy.com/media/13sL05U54IPEek/giphy.gif" alt="Car" style="width:100%" height=300>
+      <h4>Sabo</h4>
+
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="column YourName">
+    <div class="content">
+    <img src="https://media.giphy.com/media/xUOxfoNR0gziKGorLi/giphy.gif" alt="Nature" style="width:100%" height=300>
+      <h4>Mitsuha Miyamizu</h4>
+    </div>
+  </div>
+
+  <div class="column YourName">
+    <div class="content">
+    <img src="https://media.giphy.com/media/3ohzdOOaPDuE8KqxTq/giphy.gif" alt="Nature" style="width:100%" height=300>
+      <h4>Taki Tachibana</h4>
+    </div>
+  </div>
+
+  <div class="column YourName">
+    <div class="content">
+    <img src="https://media.giphy.com/media/3ohjUW4K0o5uPZarXG/giphy.gif" alt="Nature" style="width:100%" height=300>
+      <h4>Miki Okudera</h4>
+    </div>
+  </div>  
+
+
+  <div class="column CaseClosed">
+    <div class="content">
+    <img src="https://media.giphy.com/media/eODLcLD0Hcx7W/giphy.gif" alt="Nature" style="width:100%" height=300>
+      <h4>Shinichi Kudo</h4>
+    </div>
+  </div>
+
+  <div class="column CaseClosed">
+    <div class="content">
+    <img src="https://media.giphy.com/media/KYn1ieaZf2PLi/giphy.gif" alt="Nature" style="width:100%" height=300>
+      <h4>Ran Mouri</h4>
+    </div>
+  </div>
+
+  <div class="column CaseClosed">
+    <div class="content">
+    <img src="https://media.giphy.com/media/2hf6MKPDdmFTa/giphy.gif" alt="Nature" style="width:100%" height=300>
+      <h4>Miki Okudera</h4>
+    </div>
+  </div> 
+
+
+<!-- END GRID -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+</script>
+
+
+
 
     </body> 
  
