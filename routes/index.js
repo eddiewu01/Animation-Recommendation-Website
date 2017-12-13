@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+
 // var mongojs = require('mongodb');
 // var db = mongojs('mongodb://animi:database@ds133796.mlab.com:33796/animation');
 
@@ -122,10 +123,7 @@ router.get('/Top10', function(req,res) {
    //  query += " ORDER BY a.score DESC LIMIT 10"
   
 
-  var query = 'SELECT DISTINCT name ';
-  query += "FROM animation a, animation_genre ag, genre1 g"
-  query += " WHERE a.anime_id = ag.anime_id AND ag.genre_label = g.genre_label"
-  query += " ORDER BY a.score LIMIT 10"
+  var query = "SELECT * FROM animation ORDER BY score DESC LIMIT 10";
   // query += " GROUP BY g.genre"
   // query += " ORDER BY AVG(a.score) DESC"
 
@@ -782,14 +780,15 @@ router.get('/animation_per_genre', function(req,res) {
   // query += " GROUP BY g.genre"
   // query += " ORDER BY AVG(a.score) DESC LIMIT 20"
 
-  var query = "select a1.name, temp.score, temp.genre from animation a1, animation_genre2 ag1, (select MAX(a.score) as score, ag.genre from animation a, animation_genre2 ag";
-  query += " where a.anime_id = ag.anime_id group by ag.genre) temp ";
-  query += "where a1.anime_id = ag1.anime_id and a1.score = temp.score and ag1.genre = temp.genre";
+  // var query = "select a1.name, temp.score, temp.genre from animation a1, animation_genre2 ag1, (select MAX(a.score) as score, ag.genre from animation a, animation_genre2 ag";
+  // query += " where a.anime_id = ag.anime_id group by ag.genre) temp ";
+  // query += "where a1.anime_id = ag1.anime_id and a1.score = temp.score and ag1.genre = temp.genre";
   // var query = "select * from animation limit 5";
+  var query = "SELECT * FROM top_anime_by_genre";
   console.log(query)
   //var email = req.params.email;
   //if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
-  // console.log(query);
+  // console.log(query);animation_per
   // console.log('test controller');
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
