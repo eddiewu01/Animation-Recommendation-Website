@@ -214,6 +214,15 @@ h1 {
       <input name="genre" ng-model="genre" value="">
       <button type="button" ng-click="Search()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4">Search</button>
   </p>
+
+  <p> Enter your genre vote:
+  </p>
+      Name: <input type="text" name="uname" ng-model="uname" value=""></br>
+      Genre: <input type="text" name="genre1" ng-model="genre1" value=""></br>
+      Comment: <input type="text" name="comment" ng-model="comment" value=""></br>
+
+  <button type="button" ng-click="submitvote()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal5">Submit Vote</button></br>
+  <button type="button" class="btn btn-info btn-lg" ng-click = "showvotes()" data-toggle="modal" data-target="#myModal6">Show Recent Genre Votes</button>
   
   <!-- Modal1 -->
   </p>
@@ -346,6 +355,60 @@ h1 {
       </div>
     </div>
   </div>
+
+
+
+<div class="modal fade" id="myModal5" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <!-- <div class="alert alert-info" ng-show="loading">Loading data...</div> -->
+        <div class="alert alert-info" ng-show="loading">Insertion successful!</div>
+
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal6" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Popular Genres</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info" ng-show="loading">Loading data...</div>
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+        <tr> 
+        <th> Genre </th>
+<!--         <th> Genre </th> -->
+        <th> Votes </th>
+<!--         <th> Episodes </th>
+        <th> Score </th>
+        <th> members </th> -->
+        <tr ng-repeat="x in data">
+        <!-- <td> {{x.anmie_id}} </td> -->
+        <td> {{x.genre}} </td>
+        <td> {{x.counts}} </td>
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 
 

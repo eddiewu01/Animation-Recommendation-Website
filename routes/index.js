@@ -152,8 +152,8 @@ router.get('/members', function(req,res) {
   // var query = 'SELECT * from animation Limit 5';
 
   // Q8 from milestone 3
-  // var query = "SELECT d2.name FROM (SELECT a.name, AVG(d1.rating) as avg_rating FROM animation a, (SELECT ratecutb.anime_id AS anime_id, ratecutb.rating AS rating "
-  // query += "FROM premium_user JOIN ratecutb ON premium_user.user_id = ratecutb.user_id WHERE ratecutb.rating >= 0 ) d1 WHERE a.anime_id = d1.anime_id "
+  // var query = "SELECT d2.name FROM (SELECT a.name, AVG(d1.rating) as avg_rating FROM animation a, (SELECT ratecutb.anime_id AS anime_id, rate.rating AS rating "
+  // query += "FROM premium_user JOIN rate ON premium_user.user_id = rate.user_id WHERE rate.rating >= 0 ) d1 WHERE a.anime_id = d1.anime_id "
   // query +=  "GROUP BY d1.amine_id) d2 ORDER BY d2.avg_rating DESC LIMIT 20"
 
   // var query = "SELECT ratecutb.anime_id AS anime_id, ratecutb.rating AS rating FROM premium_user JOIN ratecutb ON premium_user.user_id = ratecutb.user_id WHERE ratecutb.rating >= 0 LIMIT 20"
@@ -167,6 +167,27 @@ router.get('/members', function(req,res) {
         res.json(rows);
     }  
     });
+});
+
+
+router.get('/prem_recommend', function(req,res){
+
+
+var query = "SELECT a.name, temp.rating FROM animation a, (SELECT r.anime_id, AVG(r.rating) as rating FROM premium_user p, rate r WHERE p.user_id = r.user_id"
+query += " GROUP BY r.anime_id) temp WHERE a.anime_id = temp.anime_id ORDER BY temp.rating DESC LIMIT 20";
+
+    console.log(query);
+  // console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+        res.json(rows);
+    }  
+    });
+
+
+
 });
 
 // router.get('/Empty', function(req,res) {
@@ -205,7 +226,8 @@ router.get('/insert/:values', function(req,res) {
  // console.log("test?????????")
 
  var value = req.params.values.split('&');
- var query = 'INSERT INTO NewUserReview(name,score) VALUES("'+value[0]+'","'+value[1]+'")'
+
+ var query = 'INSERT INTO hasAnimeReviews(uname, name,score, review) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'")';
  console.log(query)
 
     //console.log('INSERT INTO Person(login,name,sex,relationshipStatus,birthyear) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'","'+value[4]+'")');
@@ -220,7 +242,7 @@ router.get('/insert/:values', function(req,res) {
 router.get('/showreview', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT name, score from NewUserReview';
+  var query = 'SELECT * from hasAnimeReviews';
 
   console.log(query);
   console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
@@ -724,7 +746,7 @@ router.get('/numcharsperanime', function(req,res){
 router.get('/genreshowall', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT ag.genre, AVG (a.score) AS score FROM animation a, animation_genre2 ag WHERE a.anime_id = ag.anime_id GROUP BY ag.genre';
+  var query = 'SELECT ag.genre, AVG (a.score) AS score FROM animation a, animation_genre ag WHERE a.anime_id = ag.anime_id GROUP BY ag.genre';
   console.log(query)
   //var email = req.params.email;
   //if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
@@ -744,7 +766,7 @@ router.get('/genreTop5', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
   
-  var query = 'SELECT ag.genre, AVG (a.score) AS score FROM animation a, animation_genre2 ag WHERE a.anime_id = ag.anime_id GROUP BY ag.genre ORDER BY score DESC LIMIT 5';
+  var query = 'SELECT ag.genre, AVG (a.score) AS score FROM animation a, animation_genre ag WHERE a.anime_id = ag.anime_id GROUP BY ag.genre ORDER BY score DESC LIMIT 5';
 
   console.log("test in index js")
 
@@ -772,11 +794,9 @@ router.get('/animation_per_genre', function(req,res) {
   // query += " GROUP BY g.genre"
   // query += " ORDER BY AVG(a.score) DESC LIMIT 20"
 
-  // var query = "select a1.name, temp.score, temp.genre from animation a1, animation_genre2 ag1, (select MAX(a.score) as score, ag.genre from animation a, animation_genre2 ag";
-  // query += " where a.anime_id = ag.anime_id group by ag.genre) temp ";
-  // query += "where a1.anime_id = ag1.anime_id and a1.score = temp.score and ag1.genre = temp.genre";
-  // var query = "select * from animation limit 5";
-  var query = "SELECT * FROM top_anime_by_genre";
+  var query = "select a1.name, temp.score, temp.genre from animation a1, animation_genre ag1, (select MAX(a.score) as score, ag.genre from animation a, animation_genre ag";
+  query += " where a.anime_id = ag.anime_id group by ag.genre) temp ";
+  query += "where a1.anime_id = ag1.anime_id and a1.score = temp.score and ag1.genre = temp.genre";
   console.log(query)
   //var email = req.params.email;
   //if (email != 'undefined') query = query + ' where login ="' + email + '"' ;
@@ -794,10 +814,10 @@ router.get('/animation_per_genre', function(req,res) {
 router.get('/data1/:genre', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT DISTINCT name, score FROM animation a JOIN animation_genre2 ag2 ON a.anime_id = ag2.anime_id LIMIT 10';
+  var query = 'SELECT DISTINCT name, score FROM animation a JOIN animation_genre ag ON a.anime_id = ag.anime_id LIMIT 10';
   var genre = req.params.genre;
   // console.log(email)
-  if (genre != 'undefined') query = 'SELECT name, score FROM animation a JOIN animation_genre2 ag2 ON a.anime_id = ag2.anime_id WHERE ag2.genre = "' + genre +'" LIMIT 10';
+  if (genre != 'undefined') query = 'SELECT name, score FROM animation a JOIN animation_genre ag ON a.anime_id = ag.anime_id WHERE ag.genre = "' + genre +'" LIMIT 10';
   console.log(query);
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
@@ -806,6 +826,42 @@ router.get('/data1/:genre', function(req,res) {
     }  
     });
 });
+
+router.get('/data2/:votes', function(req,res){
+
+
+   var value = req.params.votes.split('&');
+
+ // waiting for tables to be created
+ var query = 'INSERT INTO hasGenreComments(uname, genre, comment) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'")';
+ console.log(query)
+
+    //console.log('INSERT INTO Person(login,name,sex,relationshipStatus,birthyear) VALUES("'+value[0]+'","'+value[1]+'","'+value[2]+'","'+value[3]+'","'+value[4]+'")');
+    connection.query(query ,function (err, rows, fields) {
+        
+        if (err) throw err;
+
+    });
+});
+
+router.get('/showvotes', function(req,res) {
+  // use console.log() as print() in case you want to debug, example below:
+  // console.log("inside person email");
+  var query = 'SELECT genre, COUNT(*) AS counts FROM hasGenreComments GROUP BY genre ORDER BY counts DESC';
+
+  console.log(query);
+  console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+        res.json(rows);
+    }  
+    });
+});
+
+
+
 
 
 // router.get('/allchars1', function(req,res) {

@@ -43,6 +43,7 @@
       }
       </style>
 
+
     </head>
 
 
@@ -150,6 +151,7 @@
   <button type="button" class="btn btn-info btn-lg" ng-click = "Submit()" data-toggle="modal" data-target="#myModal1">Show Animations</button>
   <button type="button" class="btn btn-info btn-lg" ng-click = "Top10()" data-toggle="modal" data-target="#myModal2">Top 10 Animation by Rating</button>
   <button type="button" class="btn btn-info btn-lg" ng-click = "members()" data-toggle="modal" data-target="#myModal3">Top 10 Animation by Popularity</button>
+  <button type="button" class="btn btn-info btn-lg" ng-click = "premrecommend()" data-toggle="modal" data-target="#myModal6">Top Animations Recommended by Premium Users!</button>
   
 
 <!--   <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Your interested animation:
@@ -165,15 +167,17 @@
 
 
 
+
 <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> -->
   <p> Enter your animation review:
   </p>
+      Name: <input type="text" name="score" ng-model="uname" value=""/></br>
       Animation: <input type="text" name="name" ng-model="name" value=""/></br>
-      Score: <input type="text" name="score" ng-model="score" value=""/></br>
+      Rating: <input type="text" name="score" ng-model="score" value=""/></br>
+      Review: <input type="text" name="score" ng-model="review" value=""/></br>
 
-  <button type="button" ng-click="Insert()" class="btn btn-info btn-lg">Insert</button></br>
-  <label>{{message}}</label>
-
+  <button type="button" ng-click="Insert()"" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal7">Insert</button></br>
+<!--   <label>{{message}}</label> -->
   <button type="button" class="btn btn-info btn-lg" ng-click = "showreview()" data-toggle="modal" data-target="#myModal5">Show Recent User Reviews</button>
 
 
@@ -265,14 +269,12 @@
           <div class="alert alert-info" ng-show="loading">Loading data...</div>
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
         <tr> 
-        <td> Anime_id </td>
         <td>  Name </td>
         <td> Type </td>
         <td> Episodes </td>
         <td> Score </td>
       <!--   <td> members </td> -->
         <tr ng-repeat="x in data"> 
-        <td> {{x.anime_id}} </td>
         <td> {{x.name}} </td>
         <td> {{x.type}} </td>
         <td> {{x.episodes}} </td>
@@ -338,14 +340,67 @@
             <!-- <div ng-if="loading">loading...</div> -->
 
           <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-        <tr> 
+        <tr>
+        <td> Username </td> 
         <td>  Animation </td>
         <td>  Rating </td>
+        <td> Review </td>
         <tr ng-repeat="x in data"> 
+         <td> {{x.uname}} </td> 
         <td> {{x.name}} </td>
         <td> {{x.score}} </td>
+        <td> {{x.review}} </td>
 
         </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="modal fade" id="myModal6" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Animation Information </h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info" ng-show="loading">Loading data...</div>
+            <!-- <div ng-if="loading">loading...</div> -->
+
+          <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+         <tr> 
+        <td>  Name </td>
+        <td> Rating </td>
+        <tr ng-repeat="x in data"> 
+        <td> {{x.name}} </td>
+        <td> {{x.rating}} </td>
+
+        </tr>
+    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="modal fade" id="myModal7" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <!-- <div class="alert alert-info" ng-show="loading">Loading data...</div> -->
+        <div class="alert alert-info" ng-show="loading">Insertion successful!</div>
+
     </table>
         </div>
         <div class="modal-footer">

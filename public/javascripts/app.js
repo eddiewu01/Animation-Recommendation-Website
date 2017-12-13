@@ -53,7 +53,6 @@ app.controller('registerctrl', function($scope, $http) {
 // ending registration
 
 app.controller('myController', function($scope, $http) {
-        $scope.message="";
 
 
         $scope.Submit = function() {
@@ -125,11 +124,12 @@ app.controller('myController', function($scope, $http) {
         }; 
 
       $scope.Insert = function() {
-        var request = $http.get('/insert/'+$scope.name+'&'+$scope.score);
+        $scope.$emit('LOAD');
+        var request = $http.get('/insert/'+$scope.uname + '&' + $scope.name+'&'+$scope.score + '&' + $scope.review);
 
         request.success(function(data) {
             $scope.message = "Insertion successful!";
-            // console.log("insert success");
+
         });
         request.error(function(data){
             console.log('err');
@@ -151,6 +151,21 @@ app.controller('myController', function($scope, $http) {
         });
         }; 
 
+
+        $scope.premrecommend = function(){
+            $scope.$emit('LOAD');
+        var request1 = $http.get('/prem_recommend');
+        // console.log("test.......");
+        request1.success(function(data) {
+
+            $scope.data = data;
+            $scope.$emit('UNLOAD');
+        });
+        request1.error(function(data){
+            console.log('err');
+        });
+        };
+
 });
 
 
@@ -161,6 +176,32 @@ app.controller('loadController', function($scope, $http){
 
 
 app.controller('genreController', function($scope, $http) {
+
+        $scope.submitvote = function(){
+            $scope.$emit('LOAD');
+        var request = $http.get('/data2/'+$scope.uname + '&' + $scope.genre1 + '&' + $scope.comment);
+        // console.log("test/........")
+        request.success(function(data) {
+            // $scope.$emit('UNLOAD');
+        });
+        request.error(function(data){
+            console.log('err');
+        });
+        };
+
+
+        $scope.showvotes = function(){
+            $scope.$emit('LOAD');
+        var request1 = $http.get('/showvotes');
+        // console.log("test.......");
+        request1.success(function(data) {
+            $scope.data = data;
+            $scope.$emit('UNLOAD');
+        });
+        request1.error(function(data){
+            console.log('err');
+        });
+        }; 
 
 
 
