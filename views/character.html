@@ -256,6 +256,9 @@ h1 {
       <div ng-controller="character_controller"> 
         <p> 
 
+            <button type="button" class="btn btn-info btn-lg" ng-click = "allcharacters()" data-toggle="modal" data-target="#myModal1">Top 10 Chracters Overall</button>
+  <button type="button" class="btn btn-info btn-lg" ng-click = "num_chars_per_anime()" data-toggle="modal" data-target="#myModal10">Number of Popular Characters by Anime</button>
+
       <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Your Interested Character Information by his/her name:
       <input name="charname" ng-model="charname" value="">
       <button type="button" ng-click="Search_char_name()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal9">Search</button>
@@ -273,8 +276,6 @@ h1 {
   </p>
 
 
-  <button type="button" class="btn btn-info btn-lg" ng-click = "allcharacters()" data-toggle="modal" data-target="#myModal1">Top 10 Chracters Overall</button>
-  <button type="button" class="btn btn-info btn-lg" ng-click = "num_chars_per_anime()" data-toggle="modal" data-target="#myModal10">Number of Popular Characters by Anime</button>
   <div class="container">
   <p>Use the dropdown menu below to view popular characters of some common genres.</p>
   <!-- <p>To open the dropdown menu, use a button or a link with a class of .dropdown-toggle and data-toggle="dropdown".</p>   -->                                        
