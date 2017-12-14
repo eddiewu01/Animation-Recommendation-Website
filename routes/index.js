@@ -242,7 +242,7 @@ router.get('/insert/:values', function(req,res) {
 router.get('/showreview', function(req,res) {
   // use console.log() as print() in case you want to debug, example below:
   // console.log("inside person email");
-  var query = 'SELECT * from hasAnimeReviews';
+  var query = 'SELECT DISTINCT * from hasAnimeReviews';
 
   console.log(query);
   console.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!')
