@@ -148,11 +148,12 @@
 
 
   <!-- Trigger the modal with a button -->
+  <div class="row">
   <button type="button" class="btn btn-info btn-lg" ng-click = "Submit()" data-toggle="modal" data-target="#myModal1">Show Animations</button>
   <button type="button" class="btn btn-info btn-lg" ng-click = "Top10()" data-toggle="modal" data-target="#myModal2">Top 10 Animation by Rating</button>
   <button type="button" class="btn btn-info btn-lg" ng-click = "members()" data-toggle="modal" data-target="#myModal3">Top 10 Animation by Popularity</button>
   <button type="button" class="btn btn-info btn-lg" ng-click = "premrecommend()" data-toggle="modal" data-target="#myModal6">Top Animations Recommended by Premium Users!</button>
-  
+  </div>
 
 <!--   <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Your interested animation:
       <input name="name" ng-model="name" value="">
@@ -176,10 +177,11 @@
       Rating: <input type="text" name="score" ng-model="score" value=""/></br>
       Review: <input type="text" name="score" ng-model="review" value=""/></br>
 
+<div class='column'>
   <button type="button" ng-click="Insert()"" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal7">Insert</button></br>
 <!--   <label>{{message}}</label> -->
   <button type="button" class="btn btn-info btn-lg" ng-click = "showreview()" data-toggle="modal" data-target="#myModal5">Show Recent User Reviews</button>
-
+</div>
 
 
   <!-- </div>  --> 
