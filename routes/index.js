@@ -659,7 +659,7 @@ router.get('/character/:anime', function(req,res){
         throw err;
     } else {
         //console.log("successfully connected to the database");
-        var query2 = {_id:0, name:1, url:1};
+        var query2 = {_id:0, name:1, score:1, url:1};
         db.collection("character").find(query, query2).toArray(function(err1,result){
           if(err1) throw err1;
           // console.log(result); 
@@ -688,7 +688,7 @@ router.get('/character/another/:genrescore', function(req,res){
         throw err;
     } else {
         //console.log("successfully connected to the database");
-        var query2 = {_id:0, name:1, url:1};
+        var query2 = {_id:0, name:1, animation:1, url:1};
         db.collection("character").find(query, query2).limit(5).toArray(function(err1,result){
           if(err1) throw err1;
           // console.log(result); 

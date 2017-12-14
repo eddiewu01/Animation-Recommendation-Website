@@ -254,10 +254,31 @@ h1 {
   <div class="row">
         <div class="jumbotron">
       <div ng-controller="character_controller"> 
+
+
         <p> 
 
             <button type="button" class="btn btn-info btn-lg" ng-click = "allcharacters()" data-toggle="modal" data-target="#myModal1">Top 10 Chracters Overall</button>
   <button type="button" class="btn btn-info btn-lg" ng-click = "num_chars_per_anime()" data-toggle="modal" data-target="#myModal10">Number of Popular Characters by Anime</button>
+
+<p>
+  <div class="container">
+  <p>Use the dropdown menu below to view popular characters of some common genres.</p>
+  <!-- <p>To open the dropdown menu, use a button or a link with a class of .dropdown-toggle and data-toggle="dropdown".</p>   -->                                        
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Genres
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#" role = "button" ng-click = "action_characters()" data-toggle = "modal" data-target = "#myModal2">Action</a></li>
+      <li><a href="#" role = "button" ng-click = "adventure_characters()" data-toggle = "modal" data-target = "#myModal3">Adventure</a></li>
+      <li><a href="#" role = "button" ng-click = "drama_characters()" data-toggle = "modal" data-target = "#myModal4">Drama</a></li>
+      <li><a href="#" role = "button" ng-click = "romance_characters()" data-toggle = "modal" data-target = "#myModal5">Romance</a></li>
+      <li><a href="#" role = "button" ng-click = "comedy_characters()" data-toggle = "modal" data-target = "#myModal6">Comedy</a></li>
+    </ul>
+  </div>
+</div>
+</p>
+
 
       <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Your Interested Character Information by his/her name:
       <input name="charname" ng-model="charname" value="">
@@ -276,21 +297,7 @@ h1 {
   </p>
 
 
-  <div class="container">
-  <p>Use the dropdown menu below to view popular characters of some common genres.</p>
-  <!-- <p>To open the dropdown menu, use a button or a link with a class of .dropdown-toggle and data-toggle="dropdown".</p>   -->                                        
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Genres
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#" role = "button" ng-click = "action_characters()" data-toggle = "modal" data-target = "#myModal2">Action</a></li>
-      <li><a href="#" role = "button" ng-click = "adventure_characters()" data-toggle = "modal" data-target = "#myModal3">Adventure</a></li>
-      <li><a href="#" role = "button" ng-click = "drama_characters()" data-toggle = "modal" data-target = "#myModal4">Drama</a></li>
-      <li><a href="#" role = "button" ng-click = "romance_characters()" data-toggle = "modal" data-target = "#myModal5">Romance</a></li>
-      <li><a href="#" role = "button" ng-click = "comedy_characters()" data-toggle = "modal" data-target = "#myModal6">Comedy</a></li>
-    </ul>
-  </div>
-</div>
+  
 <!--   <button type="button" class="btn btn-info btn-lg" ng-click = "Top5()" data-toggle="modal" data-target="#myModal2">Top5</button>
   <button type="button" class="btn btn-info btn-lg" ng-click = "Top20()" data-toggle="modal" data-target="#myModal3">Top20</button> -->
   
@@ -569,7 +576,7 @@ h1 {
                 <tr> 
         <th> Name </th>
         <th> Animation </th>
-        <th> Score </th>
+        <th> Rating </th>
         <!-- <th> Genres </th> -->
         <tr ng-repeat="x in data">
         <!-- <td> {{x.anmie_id}} </td> -->
